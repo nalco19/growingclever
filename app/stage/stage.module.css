@@ -166,15 +166,17 @@
   background: rgba(16, 18, 21, 0.75);
 }
 
+/* Sizes include the 1px ring: the reference is authored content-box, so its
+   72/52px circles measure 74/54px on screen. */
 .play_lg {
-  width: 72px;
-  height: 72px;
+  width: 74px;
+  height: 74px;
   font-size: 21px;
 }
 
 .play_md {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   font-size: 15px;
 }
 
@@ -385,7 +387,7 @@
   .heroImageFrame {
     border: 1px solid var(--line);
     min-height: 0;
-    height: 220px;
+    height: 222px;
   }
 
   .featured {
@@ -448,14 +450,14 @@
   }
 
   .play_lg {
-    width: 56px;
-    height: 56px;
+    width: 58px;
+    height: 58px;
     font-size: 16px;
   }
 
   .play_md {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     font-size: 14px;
   }
 
@@ -494,6 +496,7 @@
   .themesGrid {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 16px;
   }
 

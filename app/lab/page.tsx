@@ -48,7 +48,7 @@ export default function LabPage() {
           ))}
         </div>
         <div className={styles.helpCtaRow}>
-          <Link href="/contact" className={`btn btn--teal btn--sm ${styles.helpCta}`}>
+          <Link href="/contact" className={`btn btn--teal btn--sm btn--wrap ${styles.helpCta}`}>
             Discuss your challenge →
           </Link>
         </div>

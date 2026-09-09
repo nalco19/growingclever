@@ -14,7 +14,7 @@ export default function ClosingCta({ variant, headline, ctaLabel, href }: Props)
   return (
     <section className={`${styles.closing} ${styles[variant]}`}>
       <h2 className={styles.headline}>{headline}</h2>
-      <Link href={href} className="btn btn--ink">
+      <Link href={href} className="btn btn--ink btn--wrap">
         {ctaLabel}
       </Link>
     </section>

@@ -69,7 +69,7 @@ export default function VoicePage() {
               href="https://eco.sapo.pt/2026/08/19/o-greenwashing-esta-a-ficar-caro-as-empresas-portuguesas-deviam-agir-como-se-o-relogio-ja-estivesse-a-contar/"
               target="_blank"
               rel="noreferrer"
-              className={`btn btn--green btn--sm ${styles.perspectiveCta}`}
+              className={`btn btn--green btn--sm btn--wrap ${styles.perspectiveCta}`}
             >
               Read →
             </a>

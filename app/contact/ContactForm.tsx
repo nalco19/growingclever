@@ -6,54 +6,23 @@ import styles from "./contact.module.css";
 
 const topics = ["Academy", "Lab", "Stage", "Voice", "Other"];
 
-type Errors = {
-  name?: string;
-  email?: string;
-  message?: string;
-};
-
 export default function ContactForm() {
-  const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
   const [topic, setTopic] = useState("");
 
+  // No endpoint is connected yet. Validation runs through the browser's own
+  // constraint checks so the form adds no copy of its own, and a valid submit
+  // stays silent rather than implying the message was sent.
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
-
-    const nextErrors: Errors = {};
-    if (!name) nextErrors.name = "Enter your name.";
-    if (!email) nextErrors.email = "Enter your email address.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      nextErrors.email = "Enter a valid email address.";
-    if (!message) nextErrors.message = "Enter a message.";
-
-    setErrors(nextErrors);
-    setSubmitted(Object.keys(nextErrors).length === 0);
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} noValidate>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.field}>
         <label htmlFor="name" className={styles.label}>
           Name
         </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          className={styles.input}
-          aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? "name-error" : undefined}
-        />
-        {errors.name && (
-          <p id="name-error" className={styles.error}>
-            {errors.name}
-          </p>
-        )}
+        <input id="name" name="name" type="text" required className={styles.input} />
       </div>
 
       <div className={styles.field}>
@@ -67,19 +36,7 @@ export default function ContactForm() {
         <label htmlFor="email" className={styles.label}>
           Email
         </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          className={styles.input}
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        {errors.email && (
-          <p id="email-error" className={styles.error}>
-            {errors.email}
-          </p>
-        )}
+        <input id="email" name="email" type="email" required className={styles.input} />
       </div>
 
       <div className={styles.field}>
@@ -97,9 +54,9 @@ export default function ContactForm() {
             <option value="" disabled>
               Select a conversation
             </option>
-            {topics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
+            {topics.map((item) => (
+              <option key={item} value={item}>
+                {item}
               </option>
             ))}
           </select>
@@ -117,20 +74,14 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={1}
+          required
           placeholder={"Tell us a little about what you’re working on."}
           className={styles.textarea}
-          aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-error" : undefined}
         />
-        {errors.message && (
-          <p id="message-error" className={styles.error}>
-            {errors.message}
-          </p>
-        )}
       </div>
 
       <div className={styles.submitRow}>
-        <button type="submit" className="btn btn--ink">
+        <button type="submit" className="btn btn--ink btn--wrap">
           Start a conversation →
         </button>
         <span className={styles.emailFallback}>
@@ -140,12 +91,6 @@ export default function ContactForm() {
           </a>
         </span>
       </div>
-
-      {submitted && (
-        <p className={styles.status} role="status">
-          Message not sent — no form endpoint is connected yet.
-        </p>
-      )}
     </form>
   );
 }

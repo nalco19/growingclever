@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contactEmail, footerItems } from "@/lib/site";
+import { contactEmail, footerItems, linkedInUrl } from "@/lib/site";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -19,8 +19,14 @@ export default function Footer() {
           </nav>
         </div>
         <div className={styles.meta}>
-          {/* No LinkedIn destination is supplied in the handoff package, so this stays as label only. */}
-          <span className={styles.metaItem}>LinkedIn</span>
+          <a
+            href={linkedInUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.metaItem}
+          >
+            LinkedIn
+          </a>
           <a href={`mailto:${contactEmail}`} className={styles.metaItem}>
             Email
           </a>

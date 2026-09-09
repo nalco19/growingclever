@@ -255,6 +255,7 @@
     padding: 52px var(--gutter);
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 20px;
   }
 
@@ -281,6 +282,7 @@
     padding: 52px var(--gutter);
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 18px;
   }
 
@@ -321,6 +323,7 @@
   .experienceGrid {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 26px;
   }
 

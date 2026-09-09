@@ -81,7 +81,7 @@ export default function AcademyPage() {
             Tailored programmes for organisations and teams, designed around the questions, decisions
             and capabilities that matter to the business.
           </p>
-          <Link href="/contact" className={`btn btn--green btn--sm ${styles.splitCta}`}>
+          <Link href="/contact" className={`btn btn--green btn--sm btn--wrap ${styles.splitCta}`}>
             Discuss an in-company programme →
           </Link>
         </div>
@@ -103,7 +103,7 @@ export default function AcademyPage() {
             universities, connecting academic learning with real-world marketing and business
             practice.
           </p>
-          <Link href="/contact" className={`btn btn--green btn--sm ${styles.splitCta}`}>
+          <Link href="/contact" className={`btn btn--green btn--sm btn--wrap ${styles.splitCta}`}>
             Discuss a higher education programme →
           </Link>
         </div>

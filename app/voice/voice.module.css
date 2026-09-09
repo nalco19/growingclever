@@ -19,7 +19,9 @@
 .featured {
   border: 1px solid var(--ink);
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  /* Matches the approved screen's rendered split rather than the nominal
+     1.1fr 1fr, which lands the masthead and copy in the wrong proportions. */
+  grid-template-columns: 637fr 481fr;
   margin-bottom: 88px;
 }
 
@@ -226,6 +228,8 @@
 
   .featuredLogoBox {
     aspect-ratio: 16 / 10;
+    box-sizing: content-box;
+    width: calc(100% - 44px);
     border-right: 0;
     border-bottom: 1px solid var(--ink);
     padding: 22px;
@@ -264,6 +268,7 @@
   .perspective {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 12px;
     padding-top: 28px;
     margin-top: 20px;
@@ -272,7 +277,7 @@
 
   .perspectiveLogoBox {
     padding: 16px;
-    max-width: 180px;
+    max-width: 214px;
   }
 
   .perspectiveLogo {
