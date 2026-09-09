@@ -1,0 +1,299 @@
+/* --- 01 What are you looking for? ------------------------------------------ */
+
+.routes {
+  padding: 100px var(--gutter);
+  background: var(--mist);
+  border-bottom: 1px solid var(--line);
+}
+
+.routesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--line);
+  margin-top: 52px;
+}
+
+.route {
+  background: var(--paper);
+  padding: 36px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.routeTitle {
+  --fs: 24px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--green);
+}
+
+.routeBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+/* --- 02 Start a conversation ------------------------------------------------ */
+
+.conversation {
+  padding: 110px var(--gutter) 90px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 96px;
+  align-items: start;
+}
+
+.conversationIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.conversationHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+/* --- Form -------------------------------------------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 14px;
+}
+
+.label {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 22px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--grey-light);
+}
+
+.selectWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.selectPlaceholder {
+  color: var(--grey-light);
+}
+
+.selectChevron {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--grey);
+  flex: none;
+}
+
+.error {
+  font-family: var(--manrope);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.submitRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.emailFallback {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--grey);
+}
+
+.emailAddress {
+  color: var(--green);
+  font-weight: 600;
+  border-bottom: 1px solid var(--green);
+  padding-bottom: 2px;
+}
+
+.emailAddress:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.status {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--grey);
+}
+
+/* --- Tablet ------------------------------------------------------------------ */
+
+@media (max-width: 1023px) {
+  .routes {
+    padding: 72px var(--gutter);
+  }
+
+  .routesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+  }
+
+  .conversation {
+    padding: 72px var(--gutter);
+    gap: 48px;
+  }
+}
+
+/* --- Mobile ------------------------------------------------------------------ */
+
+@media (max-width: 767px) {
+  .routes {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .routesGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    background: none;
+    margin-top: 0;
+  }
+
+  .route {
+    background: none;
+    border-top: 1px solid var(--line-mist);
+    padding: 18px 0 0;
+    gap: 8px;
+  }
+
+  .routeTitle {
+    --fs: 22px;
+  }
+
+  .routeBody {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .conversation {
+    padding: 52px var(--gutter) 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .conversationIntro {
+    gap: 26px;
+  }
+
+  .conversationHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+  }
+
+  .form {
+    gap: 26px;
+  }
+
+  .field {
+    gap: 8px;
+    padding-bottom: 12px;
+  }
+
+  .input,
+  .textarea,
+  .select {
+    height: 20px;
+    font-size: 15px;
+  }
+
+  .textarea {
+    min-height: 20px;
+  }
+
+  .selectWrap {
+    gap: 12px;
+  }
+
+  .submitRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 0;
+  }
+
+  .emailFallback {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .emailAddress {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}

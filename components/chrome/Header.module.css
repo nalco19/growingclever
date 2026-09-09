@@ -1,0 +1,153 @@
+.header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--gutter);
+}
+
+.logoLink {
+  flex: none;
+  align-self: flex-start;
+  display: block;
+}
+
+.logo {
+  height: 52px;
+  width: auto;
+  flex: none;
+}
+
+.desktopNav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navItem {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--ink);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+}
+
+.navItem:hover {
+  border-bottom-color: var(--green);
+}
+
+.navItemActive {
+  font-weight: 600;
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+.cta {
+  font-family: var(--manrope);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 11px 18px;
+}
+
+.cta:hover {
+  background: var(--green);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  width: 24px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.hamburgerRule {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: var(--ink);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .desktopNav,
+  .nav {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bar {
+    padding: 16px var(--gutter);
+  }
+
+  .logo {
+    height: 36px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px var(--gutter) 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .mobileNavItem {
+    font-family: var(--manrope);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1;
+    color: var(--ink);
+    align-self: flex-start;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+  }
+
+  .mobileNavItemActive {
+    font-weight: 600;
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
+  .mobileCta {
+    align-self: stretch;
+  }
+}

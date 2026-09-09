@@ -1,0 +1,372 @@
+/* --- Hero ----------------------------------------------------------------- */
+
+.hero {
+  padding: 104px var(--gutter) 96px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.25fr 400px;
+  gap: 72px;
+  align-items: center;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.heroHeadline {
+  --fs: 84px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 0.97;
+  letter-spacing: -0.048em;
+  color: var(--ink);
+}
+
+.heroPortrait {
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  border-radius: 50%;
+  background: var(--mist);
+}
+
+/* --- 01 The founder -------------------------------------------------------- */
+
+.founder {
+  padding: 100px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.founderIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founderHeadline {
+  --fs: 58px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.founderRole {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.founderCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 44px;
+}
+
+.body {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+/* --- 02 Experience --------------------------------------------------------- */
+
+.experience {
+  padding: 100px var(--gutter) 120px;
+  background: var(--mist);
+  border-bottom: 1px solid var(--line);
+}
+
+.experienceHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 26px 0 80px;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.stage {
+  border-top: 1px solid var(--line-mist);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.stageDot {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  background: var(--green);
+  border-radius: 50%;
+}
+
+.stageTitle {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.stageBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+/* --- 03 The question -------------------------------------------------------- */
+
+.question {
+  padding: 120px var(--gutter);
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.questionIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.questionHeadline {
+  --fs: 60px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1;
+  letter-spacing: -0.042em;
+  color: var(--paper);
+}
+
+.questionCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 52px;
+}
+
+.questionBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-light);
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+
+.questionStatement {
+  --fs: 32px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.25;
+  letter-spacing: -0.028em;
+  color: var(--teal);
+}
+
+/* --- Tablet ----------------------------------------------------------------- */
+
+/* Below the drawn width the 84px headline's longest word holds its column open
+   wider than the viewport, so the portrait gives up room instead. */
+@media (max-width: 1279px) {
+  .hero {
+    grid-template-columns: 1.25fr minmax(0, 320px);
+    gap: 48px;
+  }
+
+  .heroCopy {
+    min-width: 0;
+  }
+
+  .heroPortrait {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    padding: 72px var(--gutter);
+  }
+
+  .founder,
+  .question {
+    padding: 72px var(--gutter);
+    gap: 48px;
+  }
+
+  .experience {
+    padding: 72px var(--gutter) 88px;
+  }
+
+  .experienceHeadline {
+    margin: 22px 0 56px;
+  }
+
+  .experienceGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* --- Mobile ----------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .heroCopy {
+    gap: 20px;
+  }
+
+  .heroHeadline {
+    --fs: 38px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .heroBreak {
+    display: none;
+  }
+
+  .heroPortrait {
+    width: 240px;
+    height: 240px;
+  }
+
+  .founder {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .founderIntro,
+  .founderCopy {
+    gap: 18px;
+    padding-top: 0;
+  }
+
+  .founderHeadline {
+    --fs: 36px;
+    line-height: 1.02;
+    letter-spacing: -0.038em;
+  }
+
+  .founderRole {
+    font-size: 19px;
+  }
+
+  .body {
+    font-size: 16px;
+  }
+
+  .experience {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .experienceHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    margin: 0 0 6px;
+  }
+
+  .experienceGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .stage {
+    padding-top: 18px;
+    gap: 8px;
+  }
+
+  .stageTitle {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  .stageBody {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .question {
+    padding: 64px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .questionIntro,
+  .questionCopy {
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .questionHeadline {
+    --fs: 34px;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+  }
+
+  .questionBody {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .questionStatement {
+    --fs: 24px;
+    letter-spacing: -0.024em;
+    margin-top: 6px;
+  }
+}

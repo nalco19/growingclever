@@ -1,0 +1,316 @@
+/* --- 01 Selected thinking ------------------------------------------------ */
+
+.thinking {
+  padding: 110px var(--gutter) 120px;
+  border-bottom: 1px solid var(--line);
+}
+
+.thinkingHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 26px 0 72px;
+}
+
+.featured {
+  border: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  margin-bottom: 88px;
+}
+
+/* No aspect-ratio here: a definite height would stop the cell stretching, and
+   the dividing rule has to run the full height of the card. */
+.featuredLogoBox {
+  background: var(--paper);
+  border-right: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  /* Without this the masthead's 499px intrinsic width, and the aspect-ratio box
+     resolved against the stretched row height, both hold the column open. */
+  min-width: 0;
+}
+
+.featuredLogo {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  height: auto;
+}
+
+.featuredCopy {
+  min-width: 0;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.featuredTitle {
+  --fs: 38px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.featuredBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+.source {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--grey-mid);
+}
+
+.featuredCta {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* --- ECO perspective ------------------------------------------------------ */
+
+.perspective {
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 48px;
+  row-gap: 14px;
+  align-items: start;
+  max-width: 1000px;
+}
+
+.perspectiveEyebrow {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.perspectiveLogoBox {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+}
+
+.perspectiveLogo {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+.perspectiveCopy {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.perspectiveTitle {
+  --fs: 28px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.18;
+  letter-spacing: -0.026em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.perspectiveBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+.perspectiveCta {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+/* --- 02 The point of view ------------------------------------------------- */
+
+.pov {
+  padding: 140px var(--gutter);
+  background: var(--ink);
+}
+
+.povHeadline {
+  --fs: 60px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.02;
+  letter-spacing: -0.042em;
+  color: var(--paper);
+  max-width: 24ch;
+  margin-top: 34px;
+}
+
+/* --- Tablet --------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .thinking {
+    padding: 72px var(--gutter) 80px;
+  }
+
+  .thinkingHeadline {
+    margin: 22px 0 48px;
+  }
+
+  .featured {
+    margin-bottom: 56px;
+  }
+
+  .featuredCopy {
+    padding: 32px 28px;
+  }
+
+  .perspective {
+    column-gap: 32px;
+  }
+
+  .pov {
+    padding: 96px var(--gutter);
+  }
+}
+
+/* --- Mobile --------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .thinking {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .thinkingHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    margin: 0 0 12px;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .featuredLogoBox {
+    aspect-ratio: 16 / 10;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+    padding: 22px;
+  }
+
+  .featuredLogo {
+    max-width: 310px;
+  }
+
+  .featuredCopy {
+    padding: 24px 20px;
+    gap: 12px;
+  }
+
+  .featuredTitle {
+    --fs: 26px;
+    line-height: 1.14;
+    letter-spacing: -0.028em;
+  }
+
+  .featuredBody,
+  .perspectiveBody {
+    font-size: 15px;
+  }
+
+  .source {
+    font-size: 14px;
+  }
+
+  .featuredCta {
+    align-self: stretch;
+    margin-top: 0;
+    padding: 16px 20px;
+  }
+
+  .perspective {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 28px;
+    margin-top: 20px;
+    max-width: none;
+  }
+
+  .perspectiveLogoBox {
+    padding: 16px;
+    max-width: 180px;
+  }
+
+  .perspectiveLogo {
+    width: 92%;
+  }
+
+  .perspectiveCopy {
+    gap: 12px;
+  }
+
+  .perspectiveTitle {
+    --fs: 23px;
+    line-height: 1.18;
+    letter-spacing: -0.024em;
+  }
+
+  .perspectiveCta {
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .pov {
+    padding: 72px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .povHeadline {
+    --fs: 34px;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    max-width: none;
+    margin-top: 0;
+  }
+
+  .povBreak {
+    display: none;
+  }
+}

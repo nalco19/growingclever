@@ -1,0 +1,1011 @@
+/* --- Hero --------------------------------------------------------------- */
+
+.hero {
+  padding: 32px var(--gutter) 44px;
+  border-bottom: 1px solid var(--line);
+}
+
+.heroLogo {
+  width: 560px;
+  max-width: 100%;
+  height: auto;
+  /* Negative inset aligns the logo's first glyph with the "W" of the headline. */
+  margin: 0 0 10px -33px;
+}
+
+.heroHeadline {
+  --fs: 63px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+/* The drawn hero holds the headline on one line. Cap it to the gutter width so
+   the line still fits when rendered font metrics run slightly wide. */
+@media (min-width: 1280px) {
+  .heroHeadline {
+    white-space: nowrap;
+    font-size: min(calc(var(--fs) * var(--ts)), calc(5.5vw - 8px));
+  }
+}
+
+.heroFoot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: end;
+  border-top: 1px solid var(--ink);
+  padding-top: 24px;
+}
+
+.heroLead {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.heroEyebrowWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.heroImageBand {
+  height: 520px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.heroImageFrame,
+.heroImage {
+  width: 100%;
+  height: 100%;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+/* --- 01 The belief ------------------------------------------------------ */
+
+.belief {
+  padding: 96px var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.beliefIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.beliefHeadline {
+  --fs: 58px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1;
+  letter-spacing: -0.038em;
+  color: var(--ink);
+}
+
+.beliefAside {
+  padding-top: 48px;
+}
+
+.beliefStatement {
+  --fs: 40px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--green);
+}
+
+/* --- 02 The lens -------------------------------------------------------- */
+
+.lens {
+  padding: 96px var(--gutter);
+  background: var(--ink);
+}
+
+.lensHeadline {
+  --fs: 72px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 0.99;
+  letter-spacing: -0.045em;
+  color: var(--paper);
+  margin: 26px 0 56px;
+}
+
+.lensGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 32px;
+}
+
+.lensItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lensQuestion {
+  --fs: 26px;
+  font-family: var(--sora);
+  font-weight: 500;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+  color: var(--teal);
+}
+
+.lensBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-light);
+  text-wrap: pretty;
+}
+
+/* --- 03 Where we focus -------------------------------------------------- */
+
+.focus {
+  padding: 96px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.focusHeadline {
+  --fs: 58px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 26px 0 52px;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.focusItem {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.focusTitle {
+  --fs: 30px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  color: var(--green);
+}
+
+.focusBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey);
+}
+
+/* --- 04 How we work ----------------------------------------------------- */
+
+.work {
+  padding: 96px var(--gutter);
+  background: var(--mist);
+  border-bottom: 1px solid var(--line);
+}
+
+.workHeadline {
+  --fs: 54px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+  color: var(--ink);
+  max-width: 24ch;
+  margin: 26px 0 52px;
+}
+
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--line);
+}
+
+.workCard {
+  background: var(--paper);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.workCardHead {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.workIcon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.workLabel {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.workStatement {
+  --fs: 30px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+}
+
+.workBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--grey);
+}
+
+.workCta {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 14px 20px;
+}
+
+/* --- 05 Proprietary IP -------------------------------------------------- */
+
+.iims {
+  padding: 96px var(--gutter);
+  background: var(--ink);
+}
+
+.iimsIntro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.iimsIntroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.iimsHeadline {
+  --fs: 46px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-wrap: balance;
+}
+
+.iimsStatement {
+  --fs: 28px;
+  font-family: var(--sora);
+  font-weight: 400;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.28;
+  letter-spacing: -0.022em;
+  color: var(--paper);
+  max-width: 22ch;
+  margin-top: 18px;
+  text-wrap: pretty;
+}
+
+.iimsIntroRight {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 44px;
+}
+
+.iimsLead {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+.iimsBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-light);
+}
+
+.flow {
+  margin-top: 64px;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 56px;
+}
+
+.flowRow,
+.flowBranchRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1.15fr auto 1fr;
+  gap: 20px;
+}
+
+.flowRow {
+  align-items: stretch;
+}
+
+.flowBox {
+  border: 1px solid var(--line-dark);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flowBoxAccent {
+  border-color: var(--teal);
+  background: rgba(53, 201, 170, 0.06);
+}
+
+.flowLabel {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.flowLabelAccent {
+  color: var(--teal);
+}
+
+.flowTitle {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  color: var(--paper);
+}
+
+.flowTitleAccent {
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--teal);
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--grey);
+}
+
+.flowArrow::before {
+  content: "→";
+}
+
+.flowBranch {
+  grid-column: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flowStem {
+  width: 1px;
+  height: 26px;
+  background: var(--line-dark);
+}
+
+.flowBar {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: var(--line-dark);
+}
+
+.flowTickLeft,
+.flowTickMid,
+.flowTickRight {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 22px;
+  background: var(--line-dark);
+}
+
+.flowTickLeft {
+  left: 0;
+}
+
+.flowTickMid {
+  left: 50%;
+}
+
+.flowTickRight {
+  right: 0;
+}
+
+.flowOutcomes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 32px;
+}
+
+.flowOutcome {
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-align: center;
+}
+
+/* --- 06 Founder --------------------------------------------------------- */
+
+.founder {
+  padding: 96px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.founderPortrait {
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  border-radius: 50%;
+  background: var(--mist);
+}
+
+.founderCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.founderHeadline {
+  --fs: 58px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.founderBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--grey);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+.founderName {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.founderCta {
+  align-self: flex-start;
+  width: fit-content;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+/* --- Closing statement -------------------------------------------------- */
+
+.statement {
+  padding: 120px var(--gutter);
+  background: var(--ink);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.statementHeadline {
+  --fs: 64px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.02;
+  letter-spacing: -0.044em;
+  color: var(--paper);
+}
+
+.statementTagline {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--teal);
+}
+
+.statementCta {
+  margin-top: 8px;
+}
+
+/* --- Tablet ------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .workGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flowRow,
+  .flowBranchRow {
+    grid-template-columns: 1fr auto 1.15fr auto 1fr;
+  }
+
+  .founder {
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+  }
+
+  .founderPortrait {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+/* --- Mobile ------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 40px var(--gutter) 0;
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .heroLogo {
+    width: 290px;
+    margin: 0 0 0 -17px;
+  }
+
+  .heroHeadline {
+    --fs: 34px;
+    line-height: 1;
+    letter-spacing: -0.038em;
+    margin-bottom: 0;
+  }
+
+  .heroFoot {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .heroLead {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .heroImageBand {
+    height: auto;
+    padding: 20px var(--gutter) 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .heroImageFrame {
+    height: 220px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .belief {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .beliefIntro {
+    gap: 16px;
+  }
+
+  .beliefHeadline {
+    --fs: 34px;
+    line-height: 1.04;
+    letter-spacing: -0.034em;
+  }
+
+  .beliefAside {
+    padding-top: 0;
+  }
+
+  .beliefStatement {
+    --fs: 28px;
+    line-height: 1.22;
+    letter-spacing: -0.026em;
+  }
+
+  .lens {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .lensHeadline {
+    --fs: 36px;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    margin: 0;
+  }
+
+  .lensGrid {
+    display: flex;
+    flex-direction: column;
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 6px;
+  }
+
+  .lensItem {
+    gap: 8px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .lensQuestion {
+    --fs: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.018em;
+  }
+
+  .lensBody {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .focus {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .focusHeadline {
+    --fs: 34px;
+    line-height: 1.04;
+    letter-spacing: -0.034em;
+    margin: 0;
+  }
+
+  .focusGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .focusItem {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    gap: 10px;
+  }
+
+  .focusGrid .focusItem:first-child {
+    border-top-color: var(--ink);
+  }
+
+  .focusTitle {
+    --fs: 24px;
+    line-height: 1.14;
+    letter-spacing: -0.025em;
+  }
+
+  .focusBody {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .work {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .workHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    max-width: none;
+    margin: 0 0 4px;
+  }
+
+  .workGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: none;
+  }
+
+  .workCard {
+    border: 1px solid var(--line);
+    padding: 24px;
+    gap: 8px;
+  }
+
+  .workIcon {
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+
+  .workCardHead {
+    gap: 10px;
+  }
+
+  .workLabel {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  .workStatement {
+    --fs: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .workBody {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .workCta {
+    margin-top: 6px;
+    padding: 15px 20px;
+  }
+
+  .iims {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .iimsIntro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .iimsIntroLeft,
+  .iimsIntroRight {
+    gap: 16px;
+    padding-top: 0;
+  }
+
+  .iimsHeadline {
+    --fs: 28px;
+    line-height: 1.08;
+    letter-spacing: -0.014em;
+  }
+
+  .iimsStatement {
+    --fs: 20px;
+    line-height: 1.32;
+    letter-spacing: -0.018em;
+    max-width: none;
+    margin-top: 6px;
+  }
+
+  .iimsLead,
+  .iimsBody {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--grey-light);
+  }
+
+  .flow {
+    margin-top: 14px;
+    border-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flowRow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flowBox {
+    padding: 18px;
+    gap: 6px;
+  }
+
+  .flowBoxAccent {
+    padding: 20px 18px;
+  }
+
+  .flowLabel {
+    font-size: 9px;
+  }
+
+  .flowTitle {
+    font-size: 19px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .flowTitleAccent {
+    font-size: 21px;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+  }
+
+  .flowArrow {
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .flowArrow::before {
+    content: "↓";
+  }
+
+  .flowBranchRow {
+    display: block;
+  }
+
+  .flowBranch {
+    grid-column: auto;
+  }
+
+  .flowStem {
+    height: 20px;
+  }
+
+  .flowBar {
+    width: 82%;
+  }
+
+  .flowTickLeft,
+  .flowTickMid,
+  .flowTickRight {
+    height: 18px;
+  }
+
+  .flowOutcomes {
+    gap: 4px;
+    margin-top: 26px;
+  }
+
+  .flowOutcome {
+    font-size: 11px;
+  }
+
+  .founder {
+    padding: 40px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .founderPortrait {
+    width: 200px;
+    height: 200px;
+  }
+
+  .founderCopy {
+    gap: 16px;
+  }
+
+  .founderHeadline {
+    --fs: 34px;
+    line-height: 1.04;
+    letter-spacing: -0.034em;
+  }
+
+  .founderBody {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .founderCta {
+    align-self: stretch;
+    width: auto;
+    white-space: normal;
+    margin-top: 0;
+    padding: 17px 20px;
+  }
+
+  .statement {
+    padding: 54px var(--gutter);
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .statementHeadline {
+    --fs: 29px;
+    line-height: 1.06;
+    letter-spacing: -0.036em;
+  }
+
+  .statementTagline {
+    font-size: 15px;
+  }
+
+  .statementCta {
+    margin-top: 0;
+  }
+}

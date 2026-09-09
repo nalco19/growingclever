@@ -1,0 +1,193 @@
+:root {
+  --ink: #101215;
+  --paper: #f7f7f6;
+  --mist: #e9efee;
+  --green: #0a7c70;
+  --teal: #35c9aa;
+  --grey: #5b5f63;
+  --grey-mid: #8a8d90;
+  --grey-light: #a9adb1;
+  --line: #dcdedd;
+  --line-mist: #c9cdcb;
+  --line-dark: #2e3237;
+  --video-bg: #1a1e20;
+
+  --sora: Sora, system-ui, sans-serif;
+  --manrope: Manrope, system-ui, sans-serif;
+
+  /* Horizontal gutter: 80px desktop, 40px tablet, 20px mobile. */
+  --gutter: 80px;
+  /* Display-type multiplier: desktop 1, tablet 0.85, mobile back to 1 with its own drawn sizes. */
+  --ts: 1;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --gutter: 40px;
+    --ts: 0.85;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 20px;
+    --ts: 1;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--manrope);
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* Scaled display type: classes set --fs, the multiplier handles the tablet band. */
+.scaled {
+  font-size: calc(var(--fs) * var(--ts));
+}
+
+/* --- Eyebrow label ------------------------------------------------------ */
+
+.eyebrow {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.eyebrow--muted {
+  color: var(--grey-mid);
+}
+
+.eyebrow--teal {
+  color: var(--teal);
+}
+
+@media (max-width: 767px) {
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--manrope);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  padding: 17px 28px;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn--ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn--ink:hover {
+  background: var(--green);
+  color: var(--paper);
+}
+
+.btn--green {
+  background: var(--green);
+  color: var(--paper);
+}
+
+.btn--green:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn--teal {
+  background: var(--teal);
+  color: var(--ink);
+}
+
+.btn--teal:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn--sm {
+  font-size: 14px;
+  padding: 15px 24px;
+}
+
+@media (max-width: 767px) {
+  .btn,
+  .btn--sm {
+    font-size: 15px;
+    line-height: 1.3;
+    padding: 17px 20px;
+  }
+}
+
+/* --- Links -------------------------------------------------------------- */
+
+.link {
+  color: var(--green);
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.link-on-dark {
+  color: var(--teal);
+}
+
+.link-on-dark:hover {
+  color: var(--paper);
+}

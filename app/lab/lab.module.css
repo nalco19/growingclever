@@ -1,0 +1,187 @@
+/* --- 01 Where we help ---------------------------------------------------- */
+
+.help {
+  padding: 100px var(--gutter);
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.helpHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--paper);
+  margin-top: 26px;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--line-dark);
+  margin-top: 56px;
+}
+
+.helpCard {
+  background: var(--ink);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.helpTitle {
+  --fs: 26px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  color: var(--teal);
+}
+
+.helpBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--grey-light);
+  text-wrap: pretty;
+}
+
+.helpCtaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+/* --- 02 Approach --------------------------------------------------------- */
+
+.approach {
+  padding: 100px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.approachIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.approachHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+.approachBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--grey);
+  padding-top: 44px;
+  max-width: 48ch;
+  text-wrap: pretty;
+}
+
+/* --- Tablet -------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .help,
+  .approach {
+    padding: 72px var(--gutter);
+  }
+
+  .helpGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .approach {
+    gap: 48px;
+  }
+}
+
+/* --- Mobile -------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .help {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-bottom-color: var(--line-dark);
+  }
+
+  .helpHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    margin: 0 0 4px;
+  }
+
+  .helpGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: none;
+    margin-top: 0;
+  }
+
+  .helpCard {
+    padding: 18px 0 0;
+    border-top: 1px solid var(--line-dark);
+    gap: 8px;
+  }
+
+  .helpTitle {
+    --fs: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .helpBody {
+    font-size: 16px;
+  }
+
+  .helpCtaRow {
+    margin-top: 8px;
+  }
+
+  .helpCta {
+    flex: 1;
+  }
+
+  .approach {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .approachIntro {
+    gap: 18px;
+  }
+
+  .approachHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+  }
+
+  .approachBody {
+    font-size: 16px;
+    padding-top: 0;
+    max-width: none;
+  }
+}
