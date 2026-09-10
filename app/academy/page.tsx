@@ -1,16 +1,18 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./academy.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Academy",
   description: "Practical learning for organisations, leaders and future business talent.",
   socialTitle: "Academy — Growing Clever",
   path: "/academy",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const steps = [
   { title: "Assess", body: "Evaluate the claim." },
@@ -21,6 +23,7 @@ const steps = [
 export default function AcademyPage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <PageHero
         eyebrow="Growing Clever Academy"
         headline="Learn what responsible growth requires."

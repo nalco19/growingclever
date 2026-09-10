@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./stage.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Stage",
   description: "Keynotes and executive conversations on growth, marketing and accountability.",
   socialTitle: "Stage — Growing Clever",
   path: "/stage",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const moreTalks = [
   {
@@ -60,6 +62,7 @@ function Thumbnail({ id, title, size }: { id: string; title: string; size: "lg" 
 export default function StagePage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
           <div className="eyebrow">Growing Clever Stage</div>

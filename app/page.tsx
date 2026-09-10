@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OpenGraph, homeSeo } from "@/lib/seo";
 import styles from "./home.module.css";
 
 const lensQuestions = [
@@ -88,6 +89,7 @@ const pillars = [
 export default function HomePage() {
   return (
     <>
+      <OpenGraph {...homeSeo} />
       <section className={styles.hero}>
         <img src="/assets/gc-logo-2026-dark.png" alt="Growing Clever" className={styles.heroLogo} />
         <h1 className={styles.heroHeadline}>Where growth learns accountability.</h1>

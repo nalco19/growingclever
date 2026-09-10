@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./voice.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Voice",
   description:
     "Perspectives, interviews and ideas exploring the questions shaping marketing and business.",
   socialTitle: "Voice — Growing Clever",
   path: "/voice",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function VoicePage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <PageHero
         eyebrow="Growing Clever Voice"
         headline="Where ideas become conversations."

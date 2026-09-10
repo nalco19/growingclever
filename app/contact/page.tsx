@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ContactForm from "./ContactForm";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Contact",
   description: "Tell us what you are trying to solve, build, understand or change.",
   socialTitle: "Contact — Growing Clever",
   path: "/contact",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const routes = [
   { title: "Academy", body: "Executive and tailored learning." },
@@ -22,6 +24,7 @@ const routes = [
 export default function ContactPage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <PageHero
         variant="contact"
         eyebrow="Growing Clever — Contact"

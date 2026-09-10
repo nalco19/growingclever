@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "About",
   description: "Founded by experience. Built around a different question.",
   socialTitle: "About — Growing Clever",
   path: "/about",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const experience = [
   {
@@ -32,6 +34,7 @@ const experience = [
 export default function AboutPage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
           <div className="eyebrow">Growing Clever · About</div>

@@ -1,17 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./lab.module.css";
 
-export const metadata: Metadata = pageMetadata({
+const seo: PageSeo = {
   title: "Lab",
   description:
     "Strategic advisory and consulting for organisations navigating growth, marketing and accountability.",
   socialTitle: "Lab — Growing Clever",
   path: "/lab",
-});
+};
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const areas = [
   {
@@ -31,6 +33,7 @@ const areas = [
 export default function LabPage() {
   return (
     <>
+      <OpenGraph {...seo} />
       <PageHero
         eyebrow="Growing Clever Lab"
         headline="Turning complex questions into clear decisions."
