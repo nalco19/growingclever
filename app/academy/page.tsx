@@ -1,13 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./academy.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Academy",
   description: "Practical learning for organisations, leaders and future business talent.",
-};
+  socialTitle: "Academy — Growing Clever",
+  path: "/academy",
+});
 
 const steps = [
   { title: "Assess", body: "Evaluate the claim." },

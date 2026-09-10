@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./voice.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Voice",
   description:
     "Perspectives, interviews and ideas exploring the questions shaping marketing and business.",
-};
+  socialTitle: "Voice — Growing Clever",
+  path: "/voice",
+});
 
 export default function VoicePage() {
   return (

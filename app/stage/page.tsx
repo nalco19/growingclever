@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./stage.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Stage",
   description: "Keynotes and executive conversations on growth, marketing and accountability.",
-};
+  socialTitle: "Stage — Growing Clever",
+  path: "/stage",
+});
 
 const moreTalks = [
   {

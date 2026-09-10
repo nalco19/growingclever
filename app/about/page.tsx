@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description: "Founded by experience. Built around a different question.",
-};
+  socialTitle: "About — Growing Clever",
+  path: "/about",
+});
 
 const experience = [
   {

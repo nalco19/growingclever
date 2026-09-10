@@ -1,14 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./lab.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Lab",
   description:
     "Strategic advisory and consulting for organisations navigating growth, marketing and accountability.",
-};
+  socialTitle: "Lab — Growing Clever",
+  path: "/lab",
+});
 
 const areas = [
   {

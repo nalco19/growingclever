@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ContactForm from "./ContactForm";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description: "Tell us what you are trying to solve, build, understand or change.",
-};
+  socialTitle: "Contact — Growing Clever",
+  path: "/contact",
+});
 
 const routes = [
   { title: "Academy", body: "Executive and tailored learning." },
