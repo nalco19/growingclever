@@ -5,16 +5,6 @@
   border-bottom: 1px solid var(--line);
 }
 
-.thinkingHeadline {
-  --fs: 52px;
-  font-family: var(--sora);
-  font-weight: 700;
-  font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.03;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  margin: 26px 0 72px;
-}
 
 .featured {
   border: 1px solid var(--ink);
@@ -22,6 +12,10 @@
   /* Matches the approved screen's rendered split rather than the nominal
      1.1fr 1fr, which lands the masthead and copy in the wrong proportions. */
   grid-template-columns: 637fr 481fr;
+  /* The eyebrow now sits directly above the card, so the card carries the
+     gap. 52px is the eyebrow-to-content step the approved design already
+     uses where an eyebrow leads straight into a block (Contact, 01). */
+  margin-top: 52px;
   margin-bottom: 88px;
 }
 
@@ -182,11 +176,8 @@
     padding: 72px var(--gutter) 80px;
   }
 
-  .thinkingHeadline {
-    margin: 22px 0 48px;
-  }
-
   .featured {
+    margin-top: 40px;
     margin-bottom: 56px;
   }
 
@@ -213,16 +204,12 @@
     gap: 18px;
   }
 
-  .thinkingHeadline {
-    --fs: 30px;
-    line-height: 1.06;
-    letter-spacing: -0.032em;
-    margin: 0 0 12px;
-  }
-
   .featured {
     display: flex;
     flex-direction: column;
+    /* Tops the section's 18px flex gap up to the 26px the approved design
+       leaves between an eyebrow and the block directly under it. */
+    margin-top: 8px;
     margin-bottom: 0;
   }
 

@@ -17,7 +17,6 @@ export const metadata: Metadata = pageMetadata(seo);
 export default function VoicePage() {
   return (
     <>
-      <OpenGraph {...seo} />
       <PageHero
         eyebrow="Growing Clever Voice"
         headline="Where ideas become conversations."
@@ -28,7 +27,6 @@ export default function VoicePage() {
 
       <section className={styles.thinking}>
         <div className="eyebrow">01 — Selected thinking</div>
-        <h2 className={styles.thinkingHeadline}>Selected thinking.</h2>
 
         <article className={styles.featured}>
           <div className={styles.featuredLogoBox}>
@@ -98,6 +96,11 @@ export default function VoicePage() {
         ctaLabel="Share an idea →"
         href="/contact"
       />
+      {/* Rendered last, not first: React hoists these <meta> elements into
+          <head>, and Next's scroll-on-navigation walks the page segment's
+          first DOM node. A zero-sized <meta> there makes it abandon the
+          scroll, so a route change lands mid-page. */}
+      <OpenGraph {...seo} />
     </>
   );
 }

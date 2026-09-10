@@ -24,7 +24,6 @@ const routes = [
 export default function ContactPage() {
   return (
     <>
-      <OpenGraph {...seo} />
       <PageHero
         variant="contact"
         eyebrow="Growing Clever — Contact"
@@ -55,6 +54,11 @@ export default function ContactPage() {
         </div>
         <ContactForm />
       </section>
+      {/* Rendered last, not first: React hoists these <meta> elements into
+          <head>, and Next's scroll-on-navigation walks the page segment's
+          first DOM node. A zero-sized <meta> there makes it abandon the
+          scroll, so a route change lands mid-page. */}
+      <OpenGraph {...seo} />
     </>
   );
 }

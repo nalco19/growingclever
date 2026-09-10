@@ -60,6 +60,11 @@ export function pageMetadata({ title, description, path }: PageSeo): Metadata {
  * the Open Graph vocabulary is emitted directly instead.
  *
  * og:image belongs here once an approved 1200x630 social image exists.
+ *
+ * Render this LAST in a page, never first. React hoists the tags into
+ * <head>, but Next's scroll-on-navigation still walks the page segment's
+ * first DOM node; a zero-sized <meta> there makes it abandon the scroll and
+ * the destination page opens mid-scroll.
  */
 export function OpenGraph({ socialTitle, description, path }: PageSeo) {
   return (
