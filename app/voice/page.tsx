@@ -54,7 +54,7 @@ export default function VoicePage() {
         <article className={styles.perspective}>
           <span className={`eyebrow ${styles.perspectiveEyebrow}`}>Perspective</span>
           <div className={styles.perspectiveLogoBox}>
-            <img src="/assets/eco-logo.png" alt="ECO" className={styles.perspectiveLogo} />
+            <img src="/assets/eco-logo-full.png" alt="ECO" className={styles.perspectiveLogo} />
           </div>
           <div className={styles.perspectiveCopy}>
             <h3 className={styles.perspectiveTitle}>
