@@ -10,6 +10,31 @@ export const metadata: Metadata = {
   },
   description:
     "We help organisations and leaders turn growth into responsible, strategic and lasting value.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+      { url: "/icons/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { url: "/icons/favicon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/icons/favicon-64.png", type: "image/png", sizes: "64x64" },
+      // Safari and Firefox honour media on icon links; other browsers ignore
+      // the pair and fall back to the entries above.
+      {
+        url: "/icons/favicon-32.png",
+        type: "image/png",
+        sizes: "32x32",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icons/favicon-dark-32.png",
+        type: "image/png",
+        sizes: "32x32",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/icons/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
