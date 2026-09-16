@@ -6,15 +6,50 @@ import styles from "./contact.module.css";
 
 const topics = ["Academy", "Lab", "Stage", "Voice", "Other"];
 
+type Status = "idle" | "sending" | "sent" | "failed";
+
 export default function ContactForm() {
   const [topic, setTopic] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
 
-  // No endpoint is connected yet. Validation runs through the browser's own
-  // constraint checks so the form adds no copy of its own, and a valid submit
-  // stays silent rather than implying the message was sent.
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Guards a second submit while a request is still in flight, alongside the
+    // disabled button, in case the form is submitted by keyboard.
+    if (status === "sending") return;
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          email: data.get("email"),
+          topic: data.get("topic"),
+          message: data.get("message"),
+          company_website: data.get("company_website"),
+        }),
+      });
+      // Success is only ever shown once the server has confirmed that the
+      // delivery service accepted the message.
+      if (!response.ok) {
+        setStatus("failed");
+        return;
+      }
+      setStatus("sent");
+      form.reset();
+      setTopic("");
+    } catch {
+      setStatus("failed");
+    }
   }
+
+  const sending = status === "sending";
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -80,8 +115,27 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Honeypot. Hidden from sight, skipped by the tab order and by assistive
+          technology; only an automated submitter fills it in. The name avoids
+          anything a password manager or browser autofill targets. */}
+      <div className={styles.honeypot} aria-hidden="true">
+        <label htmlFor="company_website">Do not fill this in</label>
+        <input
+          id="company_website"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className={styles.submitRow}>
-        <button type="submit" className="btn btn--ink btn--wrap">
+        <button
+          type="submit"
+          className="btn btn--ink btn--wrap"
+          disabled={sending}
+          aria-busy={sending}
+        >
           Start a conversation →
         </button>
         <span className={styles.emailFallback}>
@@ -91,6 +145,19 @@ export default function ContactForm() {
           </a>
         </span>
       </div>
+
+      {status !== "idle" && (
+        <p
+          className={`${styles.status} ${status === "failed" ? styles.statusFailed : ""}`}
+          role="status"
+          aria-live="polite"
+        >
+          {status === "sending" && "Sending your message…"}
+          {status === "sent" && "Thank you — your message has been sent."}
+          {status === "failed" &&
+            `Your message could not be sent. Please try again, or email ${contactEmail}.`}
+        </p>
+      )}
     </form>
   );
 }

@@ -177,6 +177,31 @@
   border-bottom-color: var(--ink);
 }
 
+/* Visually hidden and out of the flex flow, so it adds no gap. Positioned
+   off-screen rather than display:none, which automated submitters skip. */
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.status {
+  margin: 0;
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--grey);
+}
+
+.statusFailed {
+  font-weight: 600;
+  color: var(--ink);
+}
+
 /* --- Tablet ------------------------------------------------------------------ */
 
 @media (max-width: 1023px) {
@@ -288,6 +313,10 @@
   .emailFallback {
     font-size: 15px;
     line-height: 1.6;
+  }
+
+  .status {
+    font-size: 15px;
   }
 
   .emailAddress {
