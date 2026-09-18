@@ -27,7 +27,7 @@ export default function AcademyPage() {
         eyebrow="Growing Clever Academy"
         headline="Learn what responsible growth requires."
         lead="Practical learning for organisations, leaders and future business talent."
-        imageSrc="/assets/academy-hero.png"
+        imageSrc="/assets/academy-hero.webp"
         imageAlt="Audience at a Growing Clever session"
       />
 
