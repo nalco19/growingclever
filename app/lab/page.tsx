@@ -37,7 +37,7 @@ export default function LabPage() {
         eyebrow="Growing Clever Lab"
         headline="Turning complex questions into clear decisions."
         lead="Strategic advisory and consulting for organisations navigating growth, marketing and accountability."
-        imageSrc="/assets/lab-hero.png"
+        imageSrc="/assets/lab-hero.webp"
         imageAlt="Advisory session with a client team"
       />
 
