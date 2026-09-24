@@ -175,7 +175,7 @@ export default function StagePage() {
         variant="stage"
         headline="What should your audience be thinking about differently?"
         ctaLabel="Check speaking availability →"
-        href="/contact"
+        href="/contact?topic=Stage"
       />
       {/* Rendered last, not first: React hoists these <meta> elements into
           <head>, and Next's scroll-on-navigation walks the page segment's

@@ -102,7 +102,7 @@ const iimsSteps = [
         <br />
         What to strengthen
         <br />
-        What we&apos;re not saying yet
+        What we’re not saying yet
       </>
     ),
     accent: false,
@@ -241,15 +241,15 @@ export default function HomePage() {
             Neuza Alcobio is a marketing and communications executive, strategist and advisor with
             over 15 years of international experience. Her background spans agency leadership, brand
             strategy and directing multi-country teams, alongside driving integrated campaigns for
-            market leaders including L&apos;Oréal, Nestlé, Johnson &amp; Johnson, Pfizer, Zurich,
-            Auchan, Repsol and Caixa Geral de Depósitos.
+            market leaders including L’Oréal, Nestlé, Johnson &amp; Johnson, Pfizer, Henkel,
+            Zurich, Repsol, Auchan, Président and Caixa Geral de Depósitos.
           </p>
           <p className={styles.founderBody}>
             As Marketing &amp; Communications Director at Logicalis Portugal, she built the marketing
             function from the ground up, orchestrated the integration of the Logicalis and Cilnet
-            brands and co-architected and drove the global rollout of the Group&apos;s cybersecurity
+            brands and co-architected and drove the global rollout of the Group’s cybersecurity
             go‑to‑market strategy. She also co-led Responsible Business in Portugal for nearly six
-            years and served on the company&apos;s Responsible Business &amp; ESG Committee.
+            years and served on the company’s Responsible Business &amp; ESG Committee.
           </p>
           <p className={styles.founderBody}>
             She founded Growing Clever to bring that experience to the strategic marketing decisions

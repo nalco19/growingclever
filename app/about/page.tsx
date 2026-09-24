@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className={styles.brands}>
         {"Selected brands from Neuza’s career · "}
         <strong className={styles.brandsList}>
-          {"L'Oréal · Nestlé · Johnson & Johnson · Pfizer · Henkel · Zurich · Repsol · Auchan · Président"}
+          {"L’Oréal · Nestlé · Johnson & Johnson · Pfizer · Henkel · Zurich · Repsol · Auchan · Président · Caixa Geral de Depósitos"}
         </strong>
       </section>
 
