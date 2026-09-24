@@ -1,103 +1,193 @@
-/* --- 01 Flagship programme ---------------------------------------------- */
+/* Line breaks the wireframe draws only in the 390px layout. */
+.mobileBreak {
+  display: none;
+}
 
-.flagship {
-  padding: 100px var(--gutter) 60px;
-  background: var(--mist);
+/* --- 01 What we offer ---------------------------------------------------- */
+
+.offer {
+  padding: 100px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.offerHeadline {
+  --fs: 52px;
+  font-family: var(--sora);
+  font-weight: 700;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 26px 0 56px;
+}
+
+.segments {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: stretch;
+}
+
+.segment {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.segmentLabel {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.segmentImage {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.segmentHeadline {
+  --fs: 28px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.14;
+  letter-spacing: -0.026em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.segmentBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey);
+  text-wrap: pretty;
+}
+
+/* Pinned to the foot of the column so both cards align, whatever the copy. */
+.segmentCta {
+  font-size: 14px;
+  line-height: 1;
+  padding: 17px 20px;
+  align-self: stretch;
+  margin-top: auto;
+}
+
+/* --- 02 Areas we teach --------------------------------------------------- */
+
+.areas {
+  padding: 44px var(--gutter);
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.areasRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  align-items: baseline;
+}
+
+.areasList {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--paper);
+}
+
+.areasNote {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--grey-mid);
+}
+
+/* --- 03 Featured workshop ------------------------------------------------ */
+
+.workshop {
+  padding: 96px var(--gutter);
+  background: var(--mist);
+}
+
+.workshopGrid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: start;
 }
 
-.flagshipIntro {
+.workshopCopy {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
-.programmeLabel {
+.workshopLabel {
   font-family: var(--manrope);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.3;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
 }
 
-.flagshipHeadline {
-  --fs: 52px;
+.workshopHeadline {
+  --fs: 40px;
   font-family: var(--sora);
   font-weight: 700;
   font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.03;
-  letter-spacing: -0.035em;
+  line-height: 1.06;
+  letter-spacing: -0.032em;
   color: var(--ink);
 }
 
-.flagshipCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding-top: 44px;
-}
-
-.body {
+.workshopBody {
   font-family: var(--manrope);
   font-weight: 400;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--grey);
   text-wrap: pretty;
 }
 
-.emphasis {
+.workshopEmphasis {
   color: var(--green);
   font-weight: 600;
 }
 
-/* --- 02 How it works ----------------------------------------------------- */
-
-.how {
-  padding: 0 var(--gutter) 100px;
-  background: var(--mist);
-  border-bottom: 1px solid var(--line);
-}
-
-.howInner {
-  border-top: 1px solid var(--line-mist);
-  padding-top: 56px;
-}
-
-.howHeadline {
-  --fs: 52px;
-  font-family: var(--sora);
-  font-weight: 700;
-  font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.03;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  margin: 22px 0 20px;
-}
-
-.howLead {
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 19px;
-  line-height: 1.7;
-  color: var(--grey);
-  max-width: 62ch;
-  margin-bottom: 56px;
-  text-wrap: pretty;
+.workshopCta {
+  align-self: flex-start;
+  margin-top: 4px;
 }
 
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 24px;
   align-items: start;
 }
 
+/* The dot sits on the rule that opens each step. */
 .step {
   border-top: 1px solid var(--line-mist);
   padding-top: 22px;
@@ -127,181 +217,179 @@
   color: var(--green);
 }
 
-.stepBody {
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--grey);
-  text-wrap: pretty;
-}
+/* --- Closing ------------------------------------------------------------- */
 
-/* --- Learning areas bar --------------------------------------------------- */
-
-.areas {
-  padding: 34px var(--gutter);
-  background: var(--ink);
+/* Local rather than the shared ClosingCta: the approved padding here is 96/64,
+   and the component's academy variant shares its rule with lab. */
+.closing {
+  padding: 96px var(--gutter);
+  background: var(--paper);
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 36px;
-  align-items: baseline;
-}
-
-.areasList {
-  font-family: var(--manrope);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--paper);
-}
-
-/* --- 03 / 04 Split sections ---------------------------------------------- */
-
-.split {
-  padding: 76px var(--gutter);
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  flex-direction: column;
+  gap: 32px;
   align-items: center;
 }
 
-.splitCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.splitHeadline {
-  --fs: 46px;
+.closingHeadline {
+  --fs: 56px;
   font-family: var(--sora);
   font-weight: 700;
   font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.04;
-  letter-spacing: -0.034em;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
   color: var(--ink);
-}
-
-.splitBody {
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--grey);
-  text-wrap: pretty;
-}
-
-.splitCta {
-  align-self: flex-start;
-  margin-top: 4px;
-}
-
-.splitImage {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}
-
-/* Higher education places the image on the left of the drawn desktop screen. */
-.splitImageFirst {
-  order: -1;
-}
-
-.grayscale {
-  filter: grayscale(1);
 }
 
 /* --- Tablet -------------------------------------------------------------- */
 
 @media (max-width: 1023px) {
-  .flagship {
-    padding: 72px var(--gutter) 48px;
-    gap: 48px;
+  .offer,
+  .workshop {
+    padding: 72px var(--gutter);
   }
 
-  .how {
-    padding: 0 var(--gutter) 72px;
-  }
-
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
-  .split {
-    padding: 60px var(--gutter);
+  .segments,
+  .workshopGrid {
     gap: 40px;
+  }
+
+  .closing {
+    padding: 72px var(--gutter);
   }
 }
 
 /* --- Mobile -------------------------------------------------------------- */
 
 @media (max-width: 767px) {
-  .flagship {
-    padding: 52px var(--gutter) 40px;
+  .mobileBreak {
+    display: inline;
+  }
+
+  .offer {
+    padding: 52px var(--gutter);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     gap: 18px;
   }
 
-  .flagshipIntro,
-  .flagshipCopy {
-    gap: 18px;
-    padding-top: 0;
-  }
-
-  .programmeLabel {
-    font-size: 13px;
-  }
-
-  .flagshipHeadline,
-  .howHeadline {
+  .offerHeadline {
     --fs: 30px;
     line-height: 1.06;
     letter-spacing: -0.032em;
+    margin: 0 0 6px;
   }
 
-  .body,
-  .howLead,
-  .splitBody {
+  .segments {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .segment {
+    padding-top: 18px;
+    gap: 10px;
+  }
+
+  /* The drawn screen opens the second segment with a lighter rule. */
+  .segmentSecond {
+    border-top: 1px solid var(--line);
+  }
+
+  .segmentLabel {
+    font-size: 11px;
+  }
+
+  .segmentImage {
+    margin-bottom: 4px;
+  }
+
+  .segmentHeadline {
+    --fs: 23px;
+    line-height: 1.16;
+    letter-spacing: -0.024em;
+  }
+
+  .segmentBody {
+    font-size: 15px;
+  }
+
+  .segmentCta {
+    font-size: 13px;
+    padding: 17px 12px;
+    margin-top: 4px;
+  }
+
+  .areas {
+    padding: 34px var(--gutter);
+    gap: 8px;
+    border-bottom: 0;
+  }
+
+  .areasRow {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .areasList {
     font-size: 16px;
   }
 
-  .how {
-    padding: 40px var(--gutter) 52px;
+  .areasNote {
+    font-size: 13px;
+  }
+
+  .workshop {
+    padding: 52px var(--gutter) 60px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
 
-  .howInner {
-    border-top: 0;
-    padding-top: 0;
+  .workshopGrid {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    /* Reset, as above: the desktop grid aligns to start. */
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 0;
   }
 
-  .howEyebrow {
-    border-top: 1px solid var(--line-mist);
-    padding-top: 32px;
+  .workshopCopy {
+    gap: 16px;
   }
 
-  .howHeadline {
-    margin: 0;
+  .workshopLabel {
+    font-size: 12px;
   }
 
-  .howLead {
-    max-width: none;
-    margin-bottom: 10px;
+  .workshopHeadline {
+    --fs: 28px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .workshopBody {
+    font-size: 16px;
+  }
+
+  .workshopCta {
+    align-self: stretch;
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 1.3;
+    padding: 17px 20px;
   }
 
   .steps {
     display: flex;
     flex-direction: column;
+    /* Reset: the desktop grid's align-items would otherwise shrink-wrap each
+       step here, cutting its rule short. */
     align-items: stretch;
-    gap: 24px;
+    gap: 22px;
+    margin-top: 10px;
   }
 
   .step {
@@ -313,56 +401,15 @@
     font-size: 14px;
   }
 
-  .stepBody {
-    font-size: 16px;
-  }
-
-  .areas {
-    padding: 30px var(--gutter);
-    flex-direction: column;
+  .closing {
+    padding: 64px var(--gutter);
+    gap: 24px;
     align-items: stretch;
-    gap: 10px;
   }
 
-  .areasList {
-    font-size: 16px;
-  }
-
-  .split {
-    padding: 52px var(--gutter);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-  }
-
-  .splitCopy {
-    gap: 18px;
-  }
-
-  .splitHeadline {
-    --fs: 30px;
-    line-height: 1.06;
-    letter-spacing: -0.032em;
-  }
-
-  .splitHeadlineEdu {
-    --fs: 28px;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-  }
-
-  .splitCta {
-    align-self: stretch;
-    margin-top: 0;
-  }
-
-  .splitImage {
-    margin-top: 8px;
-  }
-
-  /* Mobile stacks copy first, image last, on both split sections. */
-  .splitImageFirst {
-    order: 0;
+  .closingHeadline {
+    --fs: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.036em;
   }
 }
