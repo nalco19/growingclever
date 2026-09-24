@@ -1,7 +1,7 @@
 /* --- Hero --------------------------------------------------------------- */
 
 .hero {
-  padding: 32px var(--gutter) 44px;
+  padding: 32px var(--gutter) 30px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -34,10 +34,6 @@
 }
 
 .heroFoot {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: end;
   border-top: 1px solid var(--ink);
   padding-top: 24px;
 }
@@ -45,17 +41,10 @@
 .heroLead {
   font-family: var(--manrope);
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 26px;
+  line-height: 1.45;
   color: var(--ink);
   text-wrap: pretty;
-}
-
-.heroEyebrowWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  align-items: flex-start;
 }
 
 .heroImageBand {
@@ -72,6 +61,16 @@
 
 .heroImage {
   object-fit: cover;
+}
+
+/* Line breaks the wireframe draws only in the 390px layout. */
+.mobileBreak {
+  display: none;
+}
+
+/* Line breaks the wireframe draws only in the 1280px layout. */
+.desktopBreak {
+  display: inline;
 }
 
 /* --- 01 The belief ------------------------------------------------------ */
@@ -115,14 +114,14 @@
   color: var(--green);
 }
 
-/* --- 02 The lens -------------------------------------------------------- */
+/* --- 02 Sound familiar? ------------------------------------------------- */
 
-.lens {
+.stuck {
   padding: 96px var(--gutter);
   background: var(--ink);
 }
 
-.lensHeadline {
+.stuckHeadline {
   --fs: 72px;
   font-family: var(--sora);
   font-weight: 700;
@@ -133,7 +132,7 @@
   margin: 26px 0 56px;
 }
 
-.lensGrid {
+.stuckGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -141,13 +140,13 @@
   padding-top: 32px;
 }
 
-.lensItem {
+.stuckItem {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.lensQuestion {
+.stuckStatement {
   --fs: 26px;
   font-family: var(--sora);
   font-weight: 500;
@@ -155,15 +154,6 @@
   line-height: 1.24;
   letter-spacing: -0.022em;
   color: var(--teal);
-}
-
-.lensBody {
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--grey-light);
-  text-wrap: pretty;
 }
 
 /* --- 03 Where we focus -------------------------------------------------- */
@@ -186,8 +176,8 @@
 
 .focusGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
 }
 
 .focusItem {
@@ -305,56 +295,42 @@
   background: var(--ink);
 }
 
-.iimsIntro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.iimsIntroLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
 .iimsHeadline {
   --fs: 46px;
   font-family: var(--sora);
   font-weight: 700;
   font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.04;
-  letter-spacing: -0.018em;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
   text-transform: uppercase;
   color: var(--teal);
-  text-wrap: balance;
+  margin: 22px 0 0;
+}
+
+/* The drawn screen keeps each line of the lockup intact. */
+@media (min-width: 1280px) {
+  .iimsHeadline {
+    white-space: nowrap;
+  }
+}
+
+.iimsSplit {
+  margin-top: 34px;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
 }
 
 .iimsStatement {
-  --fs: 28px;
+  --fs: 34px;
   font-family: var(--sora);
   font-weight: 400;
   font-size: calc(var(--fs) * var(--ts));
-  line-height: 1.28;
-  letter-spacing: -0.022em;
-  color: var(--paper);
-  max-width: 22ch;
-  margin-top: 18px;
-  text-wrap: pretty;
-}
-
-.iimsIntroRight {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 44px;
-}
-
-.iimsLead {
-  font-family: var(--manrope);
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 1.6;
+  line-height: 1.22;
+  letter-spacing: -0.026em;
   color: var(--paper);
   text-wrap: pretty;
 }
@@ -362,146 +338,108 @@
 .iimsBody {
   font-family: var(--manrope);
   font-weight: 400;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.75;
   color: var(--grey-light);
+  text-wrap: pretty;
 }
 
 .flow {
-  margin-top: 64px;
-  border-top: 1px solid var(--line-dark);
-  padding-top: 56px;
-}
-
-.flowRow,
-.flowBranchRow {
-  display: grid;
-  grid-template-columns: 1fr auto 1.15fr auto 1fr;
-  gap: 20px;
+  margin-top: 52px;
 }
 
 .flowRow {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr 56px 1fr;
   align-items: stretch;
 }
 
 .flowBox {
   border: 1px solid var(--line-dark);
-  padding: 28px 26px;
+  border-top: 3px solid var(--grey);
+  padding: 32px 30px 34px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
 .flowBoxAccent {
   border-color: var(--teal);
-  background: rgba(53, 201, 170, 0.06);
+  background: rgba(53, 201, 170, 0.07);
 }
 
+.flowHead {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.flowNum,
 .flowLabel {
   font-family: var(--manrope);
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--grey);
+  color: var(--teal);
 }
 
-.flowLabelAccent {
-  color: var(--teal);
+.flowNum {
+  flex: none;
+}
+
+.flowLabel {
+  text-transform: uppercase;
 }
 
 .flowTitle {
   font-family: var(--sora);
   font-weight: 600;
   font-size: 25px;
-  line-height: 1.12;
-  letter-spacing: -0.018em;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
   color: var(--paper);
+  text-wrap: pretty;
 }
 
 .flowTitleAccent {
   font-family: var(--sora);
   font-weight: 700;
   font-size: 27px;
-  line-height: 1.12;
+  line-height: 1.16;
   letter-spacing: -0.02em;
   color: var(--teal);
+  text-wrap: pretty;
 }
 
+/* A hairline running the full cell with the arrow sitting on top of it. */
 .flowArrow {
+  position: relative;
   display: flex;
   align-items: center;
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1;
-  color: var(--grey);
+  justify-content: center;
 }
 
 .flowArrow::before {
-  content: "→";
-}
-
-.flowBranch {
-  grid-column: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flowStem {
-  width: 1px;
-  height: 26px;
-  background: var(--line-dark);
-}
-
-.flowBar {
-  position: relative;
-  width: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
   height: 1px;
   background: var(--line-dark);
 }
 
-.flowTickLeft,
-.flowTickMid,
-.flowTickRight {
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 22px;
-  background: var(--line-dark);
-}
-
-.flowTickLeft {
-  left: 0;
-}
-
-.flowTickMid {
-  left: 50%;
-}
-
-.flowTickRight {
-  right: 0;
-}
-
-.flowOutcomes {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-top: 32px;
-}
-
-.flowOutcome {
-  font-family: var(--sora);
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 1.3;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--teal);
-  text-align: center;
+.flowArrow::after {
+  content: "→";
+  position: relative;
+  background: var(--ink);
+  padding: 0 6px;
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--grey);
 }
 
 /* --- 06 Founder --------------------------------------------------------- */
@@ -549,11 +487,6 @@
   text-wrap: pretty;
 }
 
-.founderName {
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .founderCta {
   align-self: flex-start;
   width: fit-content;
@@ -599,13 +532,22 @@
 /* --- Tablet ------------------------------------------------------------- */
 
 @media (max-width: 1023px) {
+  /* Off below the drawn desktop width: the explicit break would otherwise
+     strand "organisations" on a line of its own once the box narrows. */
+  .desktopBreak {
+    display: none;
+  }
+
   .workGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .flowRow,
-  .flowBranchRow {
-    grid-template-columns: 1fr auto 1.15fr auto 1fr;
+  .focusGrid {
+    gap: 40px;
+  }
+
+  .flowRow {
+    grid-template-columns: 1fr 36px 1fr 36px 1fr;
   }
 
   .founder {
@@ -622,6 +564,10 @@
 /* --- Mobile ------------------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .mobileBreak {
+    display: inline;
+  }
+
   .hero {
     padding: 40px var(--gutter) 0;
     border-bottom: 0;
@@ -696,21 +642,21 @@
     letter-spacing: -0.026em;
   }
 
-  .lens {
+  .stuck {
     padding: 40px var(--gutter);
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  .lensHeadline {
+  .stuckHeadline {
     --fs: 36px;
     line-height: 1.04;
     letter-spacing: -0.038em;
     margin: 0;
   }
 
-  .lensGrid {
+  .stuckGrid {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -719,21 +665,16 @@
     margin-top: 6px;
   }
 
-  .lensItem {
+  .stuckItem {
     gap: 8px;
     padding: 16px 0;
     border-top: 1px solid var(--line-dark);
   }
 
-  .lensQuestion {
+  .stuckStatement {
     --fs: 20px;
     line-height: 1.3;
     letter-spacing: -0.018em;
-  }
-
-  .lensBody {
-    font-size: 15px;
-    line-height: 1.65;
   }
 
   .focus {
@@ -837,54 +778,41 @@
   }
 
   .iims {
-    padding: 40px var(--gutter);
+    padding: 52px var(--gutter);
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-
-  .iimsIntro {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .iimsIntroLeft,
-  .iimsIntroRight {
-    gap: 16px;
-    padding-top: 0;
   }
 
   .iimsHeadline {
     --fs: 28px;
     line-height: 1.08;
     letter-spacing: -0.014em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .iimsSplit {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+    padding-top: 22px;
   }
 
   .iimsStatement {
-    --fs: 20px;
-    line-height: 1.32;
-    letter-spacing: -0.018em;
-    max-width: none;
-    margin-top: 6px;
+    --fs: 24px;
+    line-height: 1.24;
+    letter-spacing: -0.02em;
   }
 
-  .iimsLead,
   .iimsBody {
-    font-weight: 400;
     font-size: 15px;
-    line-height: 1.7;
-    color: var(--grey-light);
+    line-height: 1.75;
   }
 
   .flow {
-    margin-top: 14px;
-    border-top: 0;
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin-top: 20px;
   }
 
   .flowRow {
@@ -894,68 +822,41 @@
   }
 
   .flowBox {
-    padding: 18px;
-    gap: 6px;
+    padding: 20px 18px 22px;
+    gap: 12px;
   }
 
-  .flowBoxAccent {
-    padding: 20px 18px;
+  .flowHead {
+    gap: 10px;
   }
 
+  .flowNum,
   .flowLabel {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .flowTitle {
     font-size: 19px;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    line-height: 1.2;
+    letter-spacing: -0.016em;
   }
 
   .flowTitleAccent {
     font-size: 21px;
-    line-height: 1.15;
-    letter-spacing: -0.018em;
+    line-height: 1.18;
+    letter-spacing: -0.016em;
   }
 
-  .flowArrow {
-    justify-content: center;
-    font-size: 15px;
-  }
-
+  /* Stacked, so the arrow is a plain downward marker with no rule behind it. */
   .flowArrow::before {
+    display: none;
+  }
+
+  .flowArrow::after {
     content: "↓";
-  }
-
-  .flowBranchRow {
-    display: block;
-  }
-
-  .flowBranch {
-    grid-column: auto;
-  }
-
-  .flowStem {
-    height: 20px;
-  }
-
-  .flowBar {
-    width: 82%;
-  }
-
-  .flowTickLeft,
-  .flowTickMid,
-  .flowTickRight {
-    height: 18px;
-  }
-
-  .flowOutcomes {
-    gap: 4px;
-    margin-top: 26px;
-  }
-
-  .flowOutcome {
-    font-size: 11px;
+    background: none;
+    padding: 0;
+    font-size: 15px;
   }
 
   .founder {
