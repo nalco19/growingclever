@@ -1,3 +1,8 @@
+/* The 02 headline's break is drawn on the 390px layout only. */
+.mobileBreak {
+  display: none;
+}
+
 /* --- Hero ----------------------------------------------------------------- */
 
 .hero {
@@ -71,8 +76,9 @@
 .founderCopy {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
   padding-top: 44px;
+  max-width: 60ch;
 }
 
 .body {
@@ -84,15 +90,49 @@
   text-wrap: pretty;
 }
 
-/* --- 02 Experience --------------------------------------------------------- */
+/* Emphasis inside a body paragraph: weight only, the colour is inherited. */
+.bodyStrong {
+  font-weight: 600;
+}
 
-.experience {
+/* --- Selected brands band -------------------------------------------------- */
+
+.brands {
+  padding: 28px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--manrope);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+}
+
+.brandsList {
+  font-weight: 800;
+  color: var(--grey);
+}
+
+/* --- 02 The thread --------------------------------------------------------- */
+
+.thread {
   padding: 100px var(--gutter) 120px;
   background: var(--mist);
   border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
 
-.experienceHeadline {
+.threadIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.threadHeadline {
   --fs: 52px;
   font-family: var(--sora);
   font-weight: 700;
@@ -100,55 +140,25 @@
   line-height: 1.03;
   letter-spacing: -0.035em;
   color: var(--ink);
-  margin: 26px 0 80px;
 }
 
-.experienceGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 44px;
-  align-items: start;
-}
-
-.stage {
-  border-top: 1px solid var(--line-mist);
-  padding-top: 22px;
+.threadCopy {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  position: relative;
+  gap: 24px;
+  padding-top: 44px;
 }
 
-.stageDot {
-  position: absolute;
-  top: -5px;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  background: var(--green);
-  border-radius: 50%;
-}
-
-.stageTitle {
+.threadStatement {
   font-family: var(--manrope);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.3;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--green);
-}
-
-.stageBody {
-  font-family: var(--manrope);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--grey);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--ink);
   text-wrap: pretty;
 }
 
-/* --- 03 The question -------------------------------------------------------- */
+/* --- 03 The question ------------------------------------------------------- */
 
 .question {
   padding: 120px var(--gutter);
@@ -224,33 +234,67 @@
 }
 
 @media (max-width: 1023px) {
+  /* The drawn two-column hero cannot hold an 84px headline once the viewport
+     leaves the drawn width: by 768px the copy column is down to 320px and the
+     headline breaks to seven lines, splitting "Built from" across two of them.
+     Stacked, the drawn three-line structure holds across the whole band. */
   .hero {
     padding: 72px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .heroHeadline {
+    --fs: 64px;
+  }
+
+  .heroPortrait {
+    width: 320px;
+    height: 320px;
+    aspect-ratio: auto;
+  }
+
+  /* Same squeeze as the hero: holding 1fr 1fr down to 768px leaves each column
+     about 320px, which breaks the 03 headline into six lines of single words.
+     These stack here instead, as they already do on the 390px layout. */
+  .founder,
+  .thread,
+  .question {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
   }
 
   .founder,
   .question {
     padding: 72px var(--gutter);
-    gap: 48px;
   }
 
-  .experience {
+  .brands {
+    padding: 24px var(--gutter);
+  }
+
+  .thread {
     padding: 72px var(--gutter) 88px;
   }
 
-  .experienceHeadline {
-    margin: 22px 0 56px;
-  }
-
-  .experienceGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+  .founderCopy,
+  .threadCopy,
+  .questionCopy {
+    padding-top: 0;
   }
 }
 
 /* --- Mobile ----------------------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .mobileBreak {
+    display: inline;
+  }
+
   .hero {
     padding: 52px var(--gutter);
     display: flex;
@@ -269,10 +313,6 @@
     letter-spacing: -0.04em;
   }
 
-  .heroBreak {
-    display: none;
-  }
-
   .heroPortrait {
     width: 240px;
     height: 240px;
@@ -283,13 +323,14 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 18px;
+    gap: 20px;
   }
 
   .founderIntro,
   .founderCopy {
-    gap: 18px;
+    gap: 20px;
     padding-top: 0;
+    max-width: none;
   }
 
   .founderHeadline {
@@ -306,40 +347,35 @@
     font-size: 16px;
   }
 
-  .experience {
-    padding: 52px var(--gutter);
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .experienceHeadline {
-    --fs: 30px;
-    line-height: 1.06;
-    letter-spacing: -0.032em;
-    margin: 0 0 6px;
-  }
-
-  .experienceGrid {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 26px;
-  }
-
-  .stage {
-    padding-top: 18px;
-    gap: 8px;
-  }
-
-  .stageTitle {
-    font-size: 14px;
+  .brands {
+    padding: 22px var(--gutter) 24px;
+    font-size: 11px;
     letter-spacing: 0.12em;
   }
 
-  .stageBody {
-    font-size: 15px;
-    line-height: 1.7;
+  .thread {
+    padding: 52px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .threadIntro,
+  .threadCopy {
+    gap: 20px;
+    padding-top: 0;
+  }
+
+  .threadHeadline {
+    --fs: 30px;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+    margin-bottom: 4px;
+  }
+
+  .threadStatement {
+    font-size: 18px;
   }
 
   .question {

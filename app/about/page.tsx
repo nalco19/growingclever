@@ -4,32 +4,22 @@ import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./about.module.css";
 
 const seo: PageSeo = {
-  title: "About",
-  description: "Founded by experience. Built around a different question.",
-  socialTitle: "About — Growing Clever",
+  title: "About Neuza Alcobio | Founder of Growing Clever",
+  description:
+    "The experience and perspective behind Growing Clever, shaped by more than 15 years across agencies, global accounts and corporate marketing leadership.",
+  socialTitle: "About Neuza Alcobio | Founder of Growing Clever",
   path: "/about",
 };
 
-export const metadata: Metadata = pageMetadata(seo);
-
-const experience = [
-  {
-    title: "Brand & Agency",
-    body: "Built a foundation in brand strategy, creativity and commercial growth — working across sectors, clients and markets.",
-  },
-  {
-    title: "International & Global",
-    body: "Led brands, teams and business across markets — learning to balance global consistency with local relevance.",
-  },
-  {
-    title: "Corporate Leadership",
-    body: "Moved marketing closer to the business — connecting strategy, go-to-market, transformation, reputation and commercial growth.",
-  },
-  {
-    title: "Responsible Business",
-    body: "Expanded the lens from how organisations grow to how growth builds long-term value and trust.",
-  },
-];
+/**
+ * The root layout appends " — Growing Clever" to a plain string title. The
+ * approved About title already names the brand, so it is set absolute to keep
+ * it exactly as approved.
+ */
+export const metadata: Metadata = {
+  ...pageMetadata(seo),
+  title: { absolute: seo.title },
+};
 
 export default function AboutPage() {
   return (
@@ -38,9 +28,9 @@ export default function AboutPage() {
         <div className={styles.heroCopy}>
           <div className="eyebrow">Growing Clever · About</div>
           <h1 className={styles.heroHeadline}>
-            Founded by experience.{" "}
-            <br className={styles.heroBreak} />
-            Built around a different question.
+            Built from experience.
+            <br /> Shaped by a
+            <br /> different question.
           </h1>
         </div>
         <img src="/assets/neuza.png" alt="Neuza Alcobio" className={styles.heroPortrait} />
@@ -54,29 +44,59 @@ export default function AboutPage() {
         </div>
         <div className={styles.founderCopy}>
           <p className={styles.body}>
-            {
-              "With 15+ years of international experience, Neuza's career spans marketing, brand transformation and business growth."
-            }
+            Neuza Alcobio founded Growing Clever after more than 15 years across global creative
+            networks, independent agencies, international account leadership and senior corporate
+            marketing roles.
           </p>
           <p className={styles.body}>
-            From brand and agency strategy to global account leadership and corporate marketing, she
-            has worked across markets, sectors and international brands — bringing together strategic
-            thinking, commercial ambition and responsible business.
+            Her career spans major brands across consumer, healthcare, financial services, retail
+            and energy, from leading multi-country accounts to building and leading the marketing
+            function at Logicalis Portugal.
+          </p>
+          <p className={styles.body}>
+            That breadth shaped a clear view:{" "}
+            <strong className={styles.bodyStrong}>
+              marketing does more than communicate or drive demand. It influences how businesses are
+              understood, how markets move and what customers come to expect.
+            </strong>
+          </p>
+          <p className={styles.body}>
+            Working on responsible business from inside a corporate organisation sharpened that lens
+            further. Growth and accountability are not competing ideas; the quality of growth depends
+            on the quality of the decisions behind it. Growing Clever was built on that belief.
           </p>
         </div>
       </section>
 
-      <section className={styles.experience}>
-        <div className="eyebrow">02 — Experience</div>
-        <h2 className={styles.experienceHeadline}>Experience shapes the perspective.</h2>
-        <div className={styles.experienceGrid}>
-          {experience.map((stage) => (
-            <div key={stage.title} className={styles.stage}>
-              <span className={styles.stageDot} />
-              <h3 className={styles.stageTitle}>{stage.title}</h3>
-              <p className={styles.stageBody}>{stage.body}</p>
-            </div>
-          ))}
+      <section className={styles.brands}>
+        {"Selected brands from Neuza’s career · "}
+        <strong className={styles.brandsList}>
+          {"L'Oréal · Nestlé · Johnson & Johnson · Pfizer · Henkel · Zurich · Repsol · Auchan · Président"}
+        </strong>
+      </section>
+
+      <section className={styles.thread}>
+        <div className={styles.threadIntro}>
+          <div className="eyebrow">02 — The thread</div>
+          <h2 className={styles.threadHeadline}>
+            The pattern behind
+            <br className={styles.mobileBreak} /> the work.
+          </h2>
+        </div>
+        <div className={styles.threadCopy}>
+          <p className={styles.body}>
+            As organisations grow, marketing has to keep pace with more complexity, more scrutiny and
+            more pressure to deliver.
+          </p>
+          <p className={styles.body}>
+            The question is not how to slow growth down, but how to make sharper choices about how
+            marketing is organised, how the business is positioned, how it goes to market and what it
+            can credibly say.
+          </p>
+          <p className={styles.threadStatement}>
+            Growing Clever works from that premise: strategic marketing as the work, accountability
+            as the lens.
+          </p>
         </div>
       </section>
 
@@ -94,14 +114,14 @@ export default function AboutPage() {
           </p>
           <p className={styles.questionStatement}>
             Not a formula.
-            <br />A way of thinking.
+            <br /> A way of thinking.
           </p>
         </div>
       </section>
 
       <ClosingCta
         variant="about"
-        headline="Still asking better questions."
+        headline="What does your business need to decide next?"
         ctaLabel="Start a conversation →"
         href="/contact"
       />
