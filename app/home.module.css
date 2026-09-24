@@ -1,7 +1,7 @@
 /* --- Hero --------------------------------------------------------------- */
 
 .hero {
-  padding: 32px var(--gutter) 44px;
+  padding: 32px var(--gutter) 30px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -34,10 +34,6 @@
 }
 
 .heroFoot {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: end;
   border-top: 1px solid var(--ink);
   padding-top: 24px;
 }
@@ -45,17 +41,10 @@
 .heroLead {
   font-family: var(--manrope);
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 26px;
+  line-height: 1.45;
   color: var(--ink);
   text-wrap: pretty;
-}
-
-.heroEyebrowWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  align-items: flex-start;
 }
 
 .heroImageBand {
@@ -77,6 +66,11 @@
 /* Line breaks the wireframe draws only in the 390px layout. */
 .mobileBreak {
   display: none;
+}
+
+/* Line breaks the wireframe draws only in the 1280px layout. */
+.desktopBreak {
+  display: inline;
 }
 
 /* --- 01 The belief ------------------------------------------------------ */
@@ -538,6 +532,12 @@
 /* --- Tablet ------------------------------------------------------------- */
 
 @media (max-width: 1023px) {
+  /* Off below the drawn desktop width: the explicit break would otherwise
+     strand "organisations" on a line of its own once the box narrows. */
+  .desktopBreak {
+    display: none;
+  }
+
   .workGrid {
     grid-template-columns: repeat(2, 1fr);
   }

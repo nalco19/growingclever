@@ -117,15 +117,9 @@ export default function HomePage() {
         <h1 className={styles.heroHeadline}>Where growth learns accountability.</h1>
         <div className={styles.heroFoot}>
           <p className={styles.heroLead}>
-            Strategic marketing advisory, education and speaking for organisations that want to grow
-            in ways they can stand behind.
+            Strategic marketing advisory, education and speaking for organisations
+            <br className={styles.desktopBreak} /> that want to grow in ways they can stand behind.
           </p>
-          <div className={styles.heroEyebrowWrap}>
-            <div className="eyebrow">
-              Advisory · Education · Speaking ·<br className={styles.mobileBreak} /> Thought
-              Leadership
-            </div>
-          </div>
         </div>
       </section>
 
