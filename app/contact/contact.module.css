@@ -8,18 +8,56 @@
 
 .routesGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 2px;
   background: var(--line);
   margin-top: 52px;
 }
 
+/* The cards jump to the form below; the 2px gap over --line draws the rules. */
 .route {
   background: var(--paper);
   padding: 36px 26px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.routeLab {
+  gap: 22px;
+}
+
+.routeTitleNote {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.strand {
+  border-left: 2px solid var(--green);
+  padding: 2px 0 2px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.strandTitle {
+  --fs: 18px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.25;
+  letter-spacing: -0.016em;
+  color: var(--ink);
+}
+
+.strandBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--grey);
+  text-wrap: pretty;
 }
 
 .routeTitle {
@@ -214,6 +252,10 @@
     margin-top: 40px;
   }
 
+  .routeLab {
+    grid-column: 1 / -1;
+  }
+
   .conversation {
     padding: 72px var(--gutter);
     gap: 48px;
@@ -245,8 +287,28 @@
     gap: 8px;
   }
 
+  .routeLab {
+    gap: 16px;
+  }
+
   .routeTitle {
     --fs: 22px;
+  }
+
+  .routeTitleNote {
+    font-size: 14px;
+  }
+
+  .strand {
+    padding-left: 14px;
+  }
+
+  .strandTitle {
+    --fs: 17px;
+  }
+
+  .strandBody {
+    line-height: 1.6;
   }
 
   .routeBody {

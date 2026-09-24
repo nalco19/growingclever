@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { contactEmail } from "@/lib/site";
 import styles from "./contact.module.css";
 
@@ -11,6 +11,20 @@ type Status = "idle" | "sending" | "sent" | "failed";
 export default function ContactForm() {
   const [topic, setTopic] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+
+  // Preselects the topic from /contact?topic=Academy. Read straight from the
+  // URL rather than through useSearchParams, which would need a Suspense
+  // boundary and would drop the form out of the prerendered HTML. An unknown
+  // or missing value leaves the placeholder in place. Nothing here touches
+  // what is submitted: the select's own value is still the only source.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("topic");
+    if (!requested) return;
+    const match = topics.find(
+      (item) => item.toLowerCase() === requested.trim().toLowerCase(),
+    );
+    if (match) setTopic(match);
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -136,7 +150,7 @@ export default function ContactForm() {
           disabled={sending}
           aria-busy={sending}
         >
-          Start a conversation →
+          Start the conversation →
         </button>
         <span className={styles.emailFallback}>
           Prefer email?{" "}
