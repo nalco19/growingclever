@@ -17,24 +17,144 @@
   margin-top: 26px;
 }
 
+/* The 2px gap over the dark backdrop draws the rule between the columns. */
 .helpGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 2px;
   background: var(--line-dark);
   margin-top: 56px;
 }
 
-.helpCard {
+.helpColumn {
   background: var(--ink);
-  padding: 40px 30px;
+  padding: 48px 44px 48px 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
+}
+
+.helpColumnSecond {
+  padding: 48px 0 48px 44px;
 }
 
 .helpTitle {
-  --fs: 26px;
+  --fs: 34px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.14;
+  letter-spacing: -0.026em;
+  color: var(--teal);
+}
+
+.helpLead {
+  font-family: var(--manrope);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--paper);
+  margin-bottom: 12px;
+  text-wrap: pretty;
+}
+
+.item {
+  border-top: 1px solid var(--line-dark);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemHead {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.itemNumber {
+  font-family: var(--manrope);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  color: var(--teal);
+  flex: none;
+}
+
+.itemTitle {
+  --fs: 21px;
+  font-family: var(--sora);
+  font-weight: 600;
+  font-size: calc(var(--fs) * var(--ts));
+  line-height: 1.24;
+  letter-spacing: -0.018em;
+  color: var(--paper);
+}
+
+/* Hangs under the title, clear of the number in the gutter. */
+.itemBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--grey-light);
+  padding-left: 30px;
+  text-wrap: pretty;
+}
+
+.callout {
+  margin-top: 14px;
+  border: 1px solid var(--teal);
+  background: rgba(53, 201, 170, 0.06);
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calloutTitle {
+  font-family: var(--manrope);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--paper);
+}
+
+.calloutBody {
+  font-family: var(--manrope);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-light);
+  text-wrap: pretty;
+}
+
+.calloutStrong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.advisory {
+  margin-top: 56px;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 64px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.advisoryCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 58ch;
+}
+
+.advisoryTitle {
+  --fs: 28px;
   font-family: var(--sora);
   font-weight: 600;
   font-size: calc(var(--fs) * var(--ts));
@@ -43,19 +163,17 @@
   color: var(--teal);
 }
 
-.helpBody {
+.advisoryBody {
   font-family: var(--manrope);
   font-weight: 400;
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--grey-light);
   text-wrap: pretty;
 }
 
-.helpCtaRow {
-  display: flex;
-  justify-content: center;
-  margin-top: 36px;
+.advisoryCta {
+  flex: none;
 }
 
 /* --- 02 Approach --------------------------------------------------------- */
@@ -104,8 +222,25 @@
     padding: 72px var(--gutter);
   }
 
+  /* Below the drawn desktop width the two columns leave too little room for a
+     34px heading over a 21px lead, so they stack and the second takes the rule
+     the grid gap was drawing. */
   .helpGrid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: none;
+  }
+
+  .helpColumn,
+  .helpColumnSecond {
+    padding: 0;
+  }
+
+  .helpColumnSecond {
+    margin-top: 44px;
+    border-top: 2px solid var(--grey-mid);
+    padding-top: 32px;
   }
 
   .approach {
@@ -120,7 +255,7 @@
     padding: 52px var(--gutter);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     border-bottom-color: var(--line-dark);
   }
 
@@ -132,34 +267,88 @@
   }
 
   .helpGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    background: none;
+    gap: 20px;
     margin-top: 0;
   }
 
-  .helpCard {
-    padding: 18px 0 0;
-    border-top: 1px solid var(--line-dark);
-    gap: 8px;
+  .helpColumn {
+    gap: 20px;
+  }
+
+  .helpColumnSecond {
+    margin-top: 36px;
+    padding-top: 26px;
   }
 
   .helpTitle {
-    --fs: 22px;
-    letter-spacing: -0.02em;
-  }
-
-  .helpBody {
-    font-size: 16px;
-  }
-
-  .helpCtaRow {
+    --fs: 26px;
+    line-height: 1.16;
+    letter-spacing: -0.022em;
     margin-top: 8px;
   }
 
-  .helpCta {
-    flex: 1;
+  .helpLead {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .item {
+    padding-top: 14px;
+    gap: 6px;
+  }
+
+  .itemHead {
+    gap: 10px;
+  }
+
+  .itemNumber {
+    font-size: 11px;
+  }
+
+  .itemTitle {
+    --fs: 18px;
+    letter-spacing: -0.016em;
+  }
+
+  .itemBody {
+    font-size: 15px;
+    padding-left: 26px;
+  }
+
+  .callout {
+    margin-top: 10px;
+    padding: 18px 16px;
+  }
+
+  .calloutTitle,
+  .calloutBody {
+    font-size: 15px;
+  }
+
+  .advisory {
+    margin-top: 24px;
+    padding-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .advisoryCopy {
+    max-width: none;
+  }
+
+  .advisoryTitle {
+    --fs: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .advisoryBody {
+    font-size: 15px;
+  }
+
+  .advisoryCta {
+    margin-top: 8px;
   }
 
   .approach {
