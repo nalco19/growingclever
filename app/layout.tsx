@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { homeSeo, siteUrl } from "@/lib/seo";
+import { homeSeo, siteUrl, socialMetadata } from "@/lib/seo";
 import Header from "@/components/chrome/Header";
 import Footer from "@/components/chrome/Footer";
 import "./globals.css";
@@ -22,8 +22,9 @@ export const metadata: Metadata = {
   description: homeSeo.description,
   // Home's own canonical; the six other pages each declare their own.
   alternates: { canonical: "/" },
-  // Open Graph is emitted by the <OpenGraph> element each page renders, not
-  // through Metadata.openGraph — see the note in lib/seo.tsx.
+  // Home's own Open Graph and Twitter card, and the inherited default for any
+  // page that does not call pageMetadata().
+  ...socialMetadata(homeSeo),
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },

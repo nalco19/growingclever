@@ -40,40 +40,52 @@ export const homeSeo: PageSeo = {
   path: "/",
 };
 
-/** The title, description and canonical for one page. */
-export function pageMetadata({ title, description, path }: PageSeo): Metadata {
-  return {
-    title,
-    description,
-    alternates: { canonical: path },
-  };
-}
+/**
+ * The site-wide social image. Both files in public/assets are 1200x630; the
+ * dark one is the default. Declared once here and reused by every page and by
+ * the root layout, so a new page inherits it without restating anything.
+ */
+export const socialImage = {
+  url: `${siteUrl}/assets/og-image.png`,
+  width: 1200,
+  height: 630,
+  type: "image/png",
+  alt: "Growing Clever: where growth learns accountability. Strategic marketing advisory, education and speaking.",
+} as const;
 
 /**
- * Open Graph tags for one page, rendered as elements and hoisted into <head>.
+ * The Open Graph and Twitter card for one page.
  *
- * These deliberately do not go through Metadata.openGraph: whenever that field
- * is set, postProcessMetadata() in next/dist/lib/metadata/resolve-metadata.js
- * auto-derives twitter:card, twitter:title and twitter:description from it,
- * with no opt-out — `twitter: null` still falls into the branch that assigns
- * them. Growing Clever supports LinkedIn only and wants no Twitter/X tags, so
- * the Open Graph vocabulary is emitted directly instead.
- *
- * og:image belongs here once an approved 1200x630 social image exists.
- *
- * Render this LAST in a page, never first. React hoists the tags into
- * <head>, but Next's scroll-on-navigation still walks the page segment's
- * first DOM node; a zero-sized <meta> there makes it abandon the scroll and
- * the destination page opens mid-scroll.
+ * Next does not deep-merge these: a page that declares `openGraph` replaces
+ * the layout's object outright rather than adding to it. So each page gets the
+ * complete set from here, rather than inheriting half of it and silently
+ * losing the image or the site name.
  */
-export function OpenGraph({ socialTitle, description, path }: PageSeo) {
-  return (
-    <>
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={siteName} />
-      <meta property="og:title" content={socialTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={absoluteUrl(path)} />
-    </>
-  );
+export function socialMetadata({ socialTitle, description, path }: PageSeo) {
+  return {
+    openGraph: {
+      type: "website",
+      siteName,
+      title: socialTitle,
+      description,
+      url: absoluteUrl(path),
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description,
+      images: [socialImage.url],
+    },
+  } satisfies Pick<Metadata, "openGraph" | "twitter">;
+}
+
+/** The title, description, canonical and social tags for one page. */
+export function pageMetadata(seo: PageSeo): Metadata {
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: { canonical: seo.path },
+    ...socialMetadata(seo),
+  };
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
+import { pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ContactForm from "./ContactForm";
 import styles from "./contact.module.css";
@@ -85,11 +85,6 @@ export default function ContactPage() {
         </div>
         <ContactForm />
       </section>
-      {/* Rendered last, not first: React hoists these <meta> elements into
-          <head>, and Next's scroll-on-navigation walks the page segment's
-          first DOM node. A zero-sized <meta> there makes it abandon the
-          scroll, so a route change lands mid-page. */}
-      <OpenGraph {...seo} />
     </>
   );
 }

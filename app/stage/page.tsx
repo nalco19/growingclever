@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
+import { pageMetadata, type PageSeo } from "@/lib/seo";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./stage.module.css";
 
@@ -177,11 +177,6 @@ export default function StagePage() {
         ctaLabel="Check speaking availability →"
         href="/contact?topic=Stage"
       />
-      {/* Rendered last, not first: React hoists these <meta> elements into
-          <head>, and Next's scroll-on-navigation walks the page segment's
-          first DOM node. A zero-sized <meta> there makes it abandon the
-          scroll, so a route change lands mid-page. */}
-      <OpenGraph {...seo} />
     </>
   );
 }
