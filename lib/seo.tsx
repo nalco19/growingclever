@@ -33,10 +33,10 @@ export type PageSeo = {
 
 /** Home's approved title and description, shared by the layout and og:title. */
 export const homeSeo: PageSeo = {
-  title: "Growing Clever — Where growth learns accountability.",
+  title: "Strategic Marketing Advisory | Growing Clever",
   description:
-    "We help organisations and leaders turn growth into responsible, strategic and lasting value.",
-  socialTitle: "Growing Clever — Where growth learns accountability.",
+    "Strategic marketing advisory, education and speaking for organisations that want to grow in ways they can stand behind.",
+  socialTitle: "Strategic Marketing Advisory | Growing Clever",
   path: "/",
 };
 

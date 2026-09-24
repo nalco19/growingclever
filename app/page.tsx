@@ -1,28 +1,22 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { OpenGraph, homeSeo } from "@/lib/seo";
 import styles from "./home.module.css";
 
-const lensQuestions = [
-  { title: "What are we growing?", body: "The business, the brand and the value we create." },
-  {
-    title: "How are we growing it?",
-    body: "The choices, trade-offs and opportunities behind growth.",
-  },
-  { title: "What are we accountable for?", body: "The value we create and the trust we build." },
+const stuckPoints = [
+  "Strong execution, blurred positioning.",
+  "Real progress, invisible to the market.",
+  "More to deliver, same old marketing model.",
 ];
 
 const focusAreas = [
   {
-    title: "Responsible Marketing",
-    body: "Marketing built around credibility, evidence, accountability and commercial impact.",
-  },
-  {
-    title: "Responsible Business",
-    body: "Connecting responsible business with growth, reputation and long-term value.",
-  },
-  {
     title: "Strategic Marketing",
-    body: "Positioning, planning and decision-making that turn business ambition into growth.",
+    body: "Marketing operating models, brand strategy, positioning and go‑to‑market that turn business ambition into strategy the organisation can actually deliver.",
+  },
+  {
+    title: "Responsible Marketing",
+    body: "Our specialism. Marketing that says what it can prove, and makes more of what the business can credibly say.",
   },
 ];
 
@@ -37,9 +31,19 @@ const iconProps = {
 
 const pillars = [
   {
+    label: "Lab",
+    statement: "We solve.",
+    body: "Strategic advisory and consulting that turn complex marketing and business challenges into clarity and action.",
+    cta: "Explore Lab →",
+    href: "/lab",
+    icon: (
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    ),
+  },
+  {
     label: "Academy",
     statement: "We teach.",
-    body: "Executive learning and practical programmes that turn expertise into capability.",
+    body: "Education and practical programmes that turn expertise into capability.",
     cta: "Explore Academy →",
     href: "/academy",
     icon: (
@@ -49,16 +53,6 @@ const pillars = [
         <path d="M8 7h8" />
         <path d="M8 11h8" />
       </>
-    ),
-  },
-  {
-    label: "Lab",
-    statement: "We solve.",
-    body: "Strategic advisory and consulting that turn complex marketing and business challenges into clarity and action.",
-    cta: "Explore Lab →",
-    href: "/lab",
-    icon: (
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
     ),
   },
   {
@@ -86,6 +80,35 @@ const pillars = [
   },
 ];
 
+const iimsSteps = [
+  {
+    number: "01",
+    label: "Marketing claims",
+    title: <>What do we want to say?</>,
+    accent: false,
+  },
+  {
+    number: "02",
+    label: "IIMS in practice",
+    title: <>Bring evidence, intent and marketing judgement together</>,
+    accent: true,
+  },
+  {
+    number: "03",
+    label: "Better decisions",
+    title: (
+      <>
+        What to say
+        <br />
+        What to strengthen
+        <br />
+        What we&apos;re not saying yet
+      </>
+    ),
+    accent: false,
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -94,11 +117,14 @@ export default function HomePage() {
         <h1 className={styles.heroHeadline}>Where growth learns accountability.</h1>
         <div className={styles.heroFoot}>
           <p className={styles.heroLead}>
-            We help organisations and leaders turn growth into responsible, strategic and lasting
-            value.
+            Strategic marketing advisory, education and speaking for organisations that want to grow
+            in ways they can stand behind.
           </p>
           <div className={styles.heroEyebrowWrap}>
-            <div className="eyebrow">Education · Advisory · Speaking · Thought Leadership</div>
+            <div className="eyebrow">
+              Advisory · Education · Speaking ·<br className={styles.mobileBreak} /> Thought
+              Leadership
+            </div>
           </div>
         </div>
       </section>
@@ -119,14 +145,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.lens}>
-        <div className="eyebrow eyebrow--muted">02 — The lens</div>
-        <h2 className={styles.lensHeadline}>Different questions.</h2>
-        <div className={styles.lensGrid}>
-          {lensQuestions.map((question) => (
-            <div key={question.title} className={styles.lensItem}>
-              <p className={styles.lensQuestion}>{question.title}</p>
-              <p className={styles.lensBody}>{question.body}</p>
+      <section className={styles.stuck}>
+        <div className="eyebrow eyebrow--muted">02 — Sound familiar?</div>
+        <h2 className={styles.stuckHeadline}>Where growth gets stuck.</h2>
+        <div className={styles.stuckGrid}>
+          {stuckPoints.map((point) => (
+            <div key={point} className={styles.stuckItem}>
+              <p className={styles.stuckStatement}>{point}</p>
             </div>
           ))}
         </div>
@@ -134,7 +159,12 @@ export default function HomePage() {
 
       <section className={styles.focus}>
         <div className="eyebrow">03 — Where we focus</div>
-        <h2 className={styles.focusHeadline}>Three areas. One approach to growth</h2>
+        <h2 className={styles.focusHeadline}>
+          Marketing is the work.
+          <br />
+          Accountability
+          <br className={styles.mobileBreak} /> is the lens.
+        </h2>
         <div className={styles.focusGrid}>
           {focusAreas.map((area) => (
             <div key={area.title} className={styles.focusItem}>
@@ -168,58 +198,38 @@ export default function HomePage() {
       </section>
 
       <section className={styles.iims}>
-        <div className={styles.iimsIntro}>
-          <div className={styles.iimsIntroLeft}>
-            <div className="eyebrow eyebrow--muted">05 — Proprietary IP</div>
-            <h2 className={styles.iimsHeadline}>Impact Integrity Marketing System™</h2>
-            <p className={styles.iimsStatement}>
-              Turning accountability into a marketing decision system.
-            </p>
-          </div>
-          <div className={styles.iimsIntroRight}>
-            <p className={styles.iimsLead}>
-              A proprietary framework developed by Growing Clever to help organisations evaluate
-              marketing claims before they reach the market.
-            </p>
-            <p className={styles.iimsBody}>
-              The IIMS™ brings structure, shared criteria and documented rationale to marketing
-              decisions — helping teams move from individual judgement to a more consistent and
-              defensible approach.
-            </p>
-          </div>
+        <div className="eyebrow eyebrow--muted">05 — Proprietary IP</div>
+        <h2 className={styles.iimsHeadline}>
+          Impact Integrity Marketing System™
+          <br />
+          (IIMS)
+        </h2>
+        <div className={styles.iimsSplit}>
+          <p className={styles.iimsStatement}>A better way to decide what your brand says.</p>
+          <p className={styles.iimsBody}>
+            Developed by Growing Clever, the IIMS turns responsible marketing principles into
+            practical decisions for real campaigns and claims.
+          </p>
         </div>
 
         <div className={styles.flow}>
           <div className={styles.flowRow}>
-            <div className={styles.flowBox}>
-              <div className={styles.flowLabel}>Campaign Claims</div>
-              <div className={styles.flowTitle}>What are we saying?</div>
-            </div>
-            <div className={styles.flowArrow} aria-hidden="true" />
-            <div className={`${styles.flowBox} ${styles.flowBoxAccent}`}>
-              <div className={`${styles.flowLabel} ${styles.flowLabelAccent}`}>IIMS™ Evaluation</div>
-              <div className={styles.flowTitleAccent}>Claims assessed through the framework</div>
-            </div>
-            <div className={styles.flowArrow} aria-hidden="true" />
-            <div className={styles.flowBox}>
-              <div className={styles.flowTitle}>Decision</div>
-            </div>
-          </div>
-
-          <div className={styles.flowBranchRow}>
-            <div className={styles.flowBranch}>
-              <div className={styles.flowStem} />
-              <div className={styles.flowBar}>
-                <div className={styles.flowTickLeft} />
-                <div className={styles.flowTickMid} />
-                <div className={styles.flowTickRight} />
-              </div>
-              <div className={styles.flowOutcomes}>
-                <span className={styles.flowOutcome}>Launch</span>
-                <span className={styles.flowOutcome}>Adjust &amp; Review</span>
-                <span className={styles.flowOutcome}>Stop</span>
-              </div>
-            </div>
+            {iimsSteps.map((step, index) => (
+              <Fragment key={step.number}>
+                {index > 0 && <div className={styles.flowArrow} aria-hidden="true" />}
+                <div
+                  className={`${styles.flowBox} ${step.accent ? styles.flowBoxAccent : ""}`.trim()}
+                >
+                  <div className={styles.flowHead}>
+                    <span className={styles.flowNum}>{step.number}</span>
+                    <span className={styles.flowLabel}>{step.label}</span>
+                  </div>
+                  <div className={step.accent ? styles.flowTitleAccent : styles.flowTitle}>
+                    {step.title}
+                  </div>
+                </div>
+              </Fragment>
+            ))}
           </div>
         </div>
       </section>
@@ -228,15 +238,29 @@ export default function HomePage() {
         <img src="/assets/neuza.png" alt="Neuza Alcobio" className={styles.founderPortrait} />
         <div className={styles.founderCopy}>
           <div className="eyebrow">06 — Founder</div>
-          <h2 className={styles.founderHeadline}>Founded by experience.</h2>
+          <h2 className={styles.founderHeadline}>
+            Built across agencies,
+            <br className={styles.mobileBreak} /> global accounts and
+            <br className={styles.mobileBreak} /> corporate leadership.
+          </h2>
           <p className={styles.founderBody}>
-            <span className={styles.founderName}>Neuza Alcobio</span> is a Marketing &amp;
-            Communications executive, strategist and advisor with 15+ years of international
-            experience across marketing, brand transformation and business growth.
+            Neuza Alcobio is a marketing and communications executive, strategist and advisor with
+            over 15 years of international experience. Her background spans agency leadership, brand
+            strategy and directing multi-country teams, alongside driving integrated campaigns for
+            market leaders including L&apos;Oréal, Nestlé, Johnson &amp; Johnson, Pfizer, Zurich,
+            Auchan, Repsol and Caixa Geral de Depósitos.
           </p>
           <p className={styles.founderBody}>
-            Her career spans agency and corporate leadership, global brands and international
-            markets — bringing together strategy, commercial ambition and responsible business.
+            As Marketing &amp; Communications Director at Logicalis Portugal, she built the marketing
+            function from the ground up, orchestrated the integration of the Logicalis and Cilnet
+            brands and co-architected and drove the global rollout of the Group&apos;s cybersecurity
+            go‑to‑market strategy. She also co-led Responsible Business in Portugal for nearly six
+            years and served on the company&apos;s Responsible Business &amp; ESG Committee.
+          </p>
+          <p className={styles.founderBody}>
+            She founded Growing Clever to bring that experience to the strategic marketing decisions
+            that shape how organisations grow, position themselves, go to market and communicate
+            responsibly.
           </p>
           <Link href="/about" className={`btn btn--green btn--sm ${styles.founderCta}`}>
             Meet Neuza →
@@ -246,11 +270,12 @@ export default function HomePage() {
 
       <section className={styles.statement}>
         <p className={styles.statementHeadline}>
-          Growth is not the destination.
+          Growth is not
+          <br className={styles.mobileBreak} /> the destination.
           <br />
           It is a responsibility.
         </p>
-        <p className={styles.statementTagline}>Where growth learns accountability.</p>
+        <p className={styles.statementTagline}>Strategic marketing, with accountability</p>
         <Link href="/contact" className={`btn btn--teal ${styles.statementCta}`}>
           Start a conversation
         </Link>
