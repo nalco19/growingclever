@@ -4,33 +4,51 @@ import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./stage.module.css";
 
 const seo: PageSeo = {
-  title: "Stage",
-  description: "Keynotes and executive conversations on growth, marketing and accountability.",
-  socialTitle: "Stage — Growing Clever",
+  title: "Marketing Keynotes & Executive Talks | Growing Clever",
+  description:
+    "Keynotes and executive talks by Neuza Alcobio in English and Portuguese on growth, marketing, leadership and accountability.",
+  socialTitle: "Marketing Keynotes & Executive Talks | Growing Clever",
   path: "/stage",
 };
 
-export const metadata: Metadata = pageMetadata(seo);
+/**
+ * The root layout appends " — Growing Clever" to a plain string title. The
+ * approved Stage title already names the brand, so it is set absolute to keep
+ * it exactly as approved.
+ */
+export const metadata: Metadata = {
+  ...pageMetadata(seo),
+  title: { absolute: seo.title },
+};
+
+const featuredTalk = {
+  id: "aZBuBHeLbOU",
+  title: "Responsible Marketing · European Innovation Academy 2026",
+};
 
 const moreTalks = [
   {
     id: "XuSXMeCTIRs",
-    title: "Responsible Business as a Startup Superpower — European Innovation Academy 2025",
+    title: "Responsible Business as a Startup Superpower · European Innovation Academy 2025",
   },
   {
     id: "7w0upad0WCg",
-    title: "Customer Journey to Sustainable IT— IDC Directions 2024",
+    title: "Customer Journey to Sustainable IT · IDC Directions 2024",
   },
 ];
 
 const themes = [
   {
-    title: "Leadership & Responsibility",
+    title: "Marketing & Organisational Change",
+    body: "How marketing needs to evolve as the business grows, changes and becomes more complex.",
+  },
+  {
+    title: "Growth, Leadership & Accountability",
     body: "What changes when leaders take responsibility for how growth happens?",
   },
   {
-    title: "Responsible Innovation & Creativity",
-    body: "Can we innovate boldly without losing sight of what matters?",
+    title: "Innovation & Creative Change",
+    body: "How do organisations keep innovating without losing focus, relevance or momentum?",
   },
 ];
 
@@ -77,25 +95,18 @@ export default function StagePage() {
 
       <section className={styles.featured}>
         <div className={styles.featuredLabels}>
-          <span className={styles.badge}>01 — Featured talk</span>
-          <span className={styles.badgeMeta}>Responsible Marketing</span>
+          <span className={styles.badge}>01 — Featured talks</span>
         </div>
         <h2 className={styles.featuredHeadline}>
           Trust is the growth edge: How to build marketing that drives growth and accountability.
         </h2>
 
         <div className={styles.featuredCard}>
-          <Thumbnail
-            id="aZBuBHeLbOU"
-            title="Responsible Marketing — European Innovation Academy 2026"
-            size="lg"
-          />
+          <Thumbnail id={featuredTalk.id} title={featuredTalk.title} size="lg" />
           <div className={styles.featuredCardCopy}>
-            <p className={styles.featuredTalkTitle}>
-              Responsible Marketing — European Innovation Academy 2026
-            </p>
+            <p className={styles.featuredTalkTitle}>{featuredTalk.title}</p>
             <a
-              href="https://youtu.be/aZBuBHeLbOU"
+              href={`https://youtu.be/${featuredTalk.id}`}
               target="_blank"
               rel="noreferrer"
               className={`btn btn--teal btn--sm ${styles.watchButton}`}
@@ -155,12 +166,15 @@ export default function StagePage() {
             </div>
           ))}
         </div>
+        <p className={styles.formatsNote}>
+          Speaking in English and Portuguese. Topics are adapted to the event, audience and format.
+        </p>
       </section>
 
       <ClosingCta
         variant="stage"
         headline="What should your audience be thinking about differently?"
-        ctaLabel="Start a conversation →"
+        ctaLabel="Check speaking availability →"
         href="/contact"
       />
       {/* Rendered last, not first: React hoists these <meta> elements into
