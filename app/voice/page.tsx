@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OpenGraph, pageMetadata, type PageSeo } from "@/lib/seo";
+import { pageMetadata, type PageSeo } from "@/lib/seo";
 import PageHero from "@/components/chrome/PageHero";
 import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./voice.module.css";
@@ -129,11 +129,6 @@ export default function VoicePage() {
         ctaLabel="Share an idea →"
         href="/contact"
       />
-      {/* Rendered last, not first: React hoists these <meta> elements into
-          <head>, and Next's scroll-on-navigation walks the page segment's
-          first DOM node. A zero-sized <meta> there makes it abandon the
-          scroll, so a route change lands mid-page. */}
-      <OpenGraph {...seo} />
     </>
   );
 }
