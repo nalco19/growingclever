@@ -117,7 +117,7 @@ export default function VoicePage() {
       <section className={styles.pov}>
         <div className="eyebrow eyebrow--muted">02 — The point of view</div>
         <h2 className={styles.povHeadline}>
-          {"We don't need more content. "}
+          {"We don’t need more content. "}
           <br className={styles.povBreak} />
           We need better conversations.
         </h2>
@@ -127,7 +127,7 @@ export default function VoicePage() {
         variant="voice"
         headline="Have an idea worth exploring?"
         ctaLabel="Share an idea →"
-        href="/contact"
+        href="/contact?topic=Voice"
       />
       {/* Rendered last, not first: React hoists these <meta> elements into
           <head>, and Next's scroll-on-navigation walks the page segment's

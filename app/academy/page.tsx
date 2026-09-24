@@ -58,7 +58,7 @@ export default function AcademyPage() {
               Practical education for marketing teams and leadership, grounded in your market, your
               brand and the choices in front of the business.
             </p>
-            <Link href="/contact" className={`btn btn--green ${styles.segmentCta}`}>
+            <Link href="/contact?topic=Academy" className={`btn btn--green ${styles.segmentCta}`}>
               Discuss an in-company programme →
             </Link>
           </div>
@@ -79,7 +79,7 @@ export default function AcademyPage() {
               leaders and future business talent, grounded in current marketing and business
               practice.
             </p>
-            <Link href="/contact" className={`btn btn--green ${styles.segmentCta}`}>
+            <Link href="/contact?topic=Academy" className={`btn btn--green ${styles.segmentCta}`}>
               Discuss an education programme →
             </Link>
           </div>
@@ -119,7 +119,7 @@ export default function AcademyPage() {
               , helping leaders and teams apply responsible marketing principles to real marketing
               decisions.
             </p>
-            <Link href="/contact" className={`btn btn--green btn--sm ${styles.workshopCta}`}>
+            <Link href="/contact?topic=Academy" className={`btn btn--green btn--sm ${styles.workshopCta}`}>
               Discuss the IIMS Workshop →
             </Link>
           </div>
@@ -137,7 +137,7 @@ export default function AcademyPage() {
 
       <section className={styles.closing}>
         <h2 className={styles.closingHeadline}>What do you need to learn next?</h2>
-        <Link href="/contact" className="btn btn--ink btn--wrap">
+        <Link href="/contact?topic=Academy" className="btn btn--ink btn--wrap">
           Start a conversation →
         </Link>
       </section>

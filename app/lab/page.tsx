@@ -55,7 +55,7 @@ const responsibleItems = [
   {
     number: "02",
     title: "IIMS Programme",
-    body: "A deeper, tailored engagement built around the organisation's own marketing, claims, evidence and decisions.",
+    body: "A deeper, tailored engagement built around the organisation’s own marketing, claims, evidence and decisions.",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function LabPage() {
               challenges evolve.
             </p>
           </div>
-          <Link href="/contact" className={`btn btn--teal btn--sm btn--wrap ${styles.advisoryCta}`}>
+          <Link href="/contact?topic=Lab" className={`btn btn--teal btn--sm btn--wrap ${styles.advisoryCta}`}>
             Discuss your challenge →
           </Link>
         </div>
@@ -147,7 +147,7 @@ export default function LabPage() {
         variant="lab"
         headline="Have a complex growth question?"
         ctaLabel="Start a conversation →"
-        href="/contact"
+        href="/contact?topic=Lab"
       />
       {/* Rendered last, not first: React hoists these <meta> elements into
           <head>, and Next's scroll-on-navigation walks the page segment's

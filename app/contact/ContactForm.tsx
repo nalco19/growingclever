@@ -4,7 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { contactEmail } from "@/lib/site";
 import styles from "./contact.module.css";
 
-const topics = ["Academy", "Lab", "Stage", "Voice", "Other"];
+const topics = ["Lab", "Academy", "Stage", "Voice"];
 
 type Status = "idle" | "sending" | "sent" | "failed";
 
