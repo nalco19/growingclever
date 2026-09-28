@@ -46,7 +46,7 @@ export const homeSeo: PageSeo = {
  * the root layout, so a new page inherits it without restating anything.
  */
 export const socialImage = {
-  url: `${siteUrl}/assets/og-image.png`,
+  url: `${siteUrl}/assets/og-image-2026-09.png`,
   width: 1200,
   height: 630,
   type: "image/png",
