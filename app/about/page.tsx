@@ -49,21 +49,23 @@ export default function AboutPage() {
             marketing roles.
           </p>
           <p className={styles.body}>
-            Her career spans major brands across consumer, healthcare, financial services, retail
-            and energy, from leading multi-country accounts to building and leading the marketing
-            function at Logicalis Portugal.
+            Her career spans major brands across consumer, healthcare, financial services, retail,
+            energy and tech, from leading multi-country accounts to building and leading the
+            marketing function at Logicalis Portugal.
           </p>
           <p className={styles.body}>
-            That breadth shaped a clear view:{" "}
+            That breadth shaped a clear view: marketing does more than communicate or drive demand.
+            It influences how businesses are understood, how markets move and what customers come to
+            expect.
+          </p>
+          <p className={styles.body}>
+            At Logicalis, alongside leading marketing, she co-led Responsible Business for nearly six
+            years. That work made one thing clear:{" "}
             <strong className={styles.bodyStrong}>
-              marketing does more than communicate or drive demand. It influences how businesses are
-              understood, how markets move and what customers come to expect.
-            </strong>
-          </p>
-          <p className={styles.body}>
-            Working on responsible business from inside a corporate organisation sharpened that lens
-            further. Growth and accountability are not competing ideas; the quality of growth depends
-            on the quality of the decisions behind it. Growing Clever was built on that belief.
+              growth and accountability are not competing ideas. The quality of growth depends on the
+              quality of the decisions behind it.
+            </strong>{" "}
+            Growing Clever was built on that belief.
           </p>
         </div>
       </section>
@@ -71,7 +73,7 @@ export default function AboutPage() {
       <section className={styles.brands}>
         {"Selected brands from Neuza’s career · "}
         <strong className={styles.brandsList}>
-          {"L’Oréal · Nestlé · Johnson & Johnson · Pfizer · Henkel · Zurich · Repsol · Auchan · Président · Caixa Geral de Depósitos"}
+          {"L’Oréal · Nestlé · Johnson & Johnson · Pfizer · Henkel · Zurich · Repsol · Auchan · Président · Caixa Geral de Depósitos · Logicalis"}
         </strong>
       </section>
 
@@ -85,36 +87,12 @@ export default function AboutPage() {
         </div>
         <div className={styles.threadCopy}>
           <p className={styles.body}>
-            As organisations grow, marketing has to keep pace with more complexity, more scrutiny and
-            more pressure to deliver.
-          </p>
-          <p className={styles.body}>
-            The question is not how to slow growth down, but how to make sharper choices about how
-            marketing is organised, how the business is positioned, how it goes to market and what it
-            can credibly say.
+            Sometimes the strategy is wrong. More often, it is right on paper and never fully lands
+            in the business.
           </p>
           <p className={styles.threadStatement}>
-            Growing Clever works from that premise: strategic marketing as the work, accountability
-            as the lens.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.question}>
-        <div className={styles.questionIntro}>
-          <div className="eyebrow eyebrow--muted">03 — The question</div>
-          <h2 className={styles.questionHeadline}>
-            What if growth was not just about getting bigger?
-          </h2>
-        </div>
-        <div className={styles.questionCopy}>
-          <p className={styles.questionBody}>
-            That question became the starting point for Growing Clever — a different way of thinking
-            about growth, value and accountability.
-          </p>
-          <p className={styles.questionStatement}>
-            Not a formula.
-            <br /> A way of thinking.
+            So the real question is not only what the strategy should be, but what it takes to
+            deliver it.
           </p>
         </div>
       </section>

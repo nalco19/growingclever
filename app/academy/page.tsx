@@ -7,7 +7,7 @@ import styles from "./academy.module.css";
 const seo: PageSeo = {
   title: "Marketing Education | Growing Clever Academy",
   description:
-    "In-company education and teaching for business schools and universities across strategic marketing, responsible marketing and responsible business.",
+    "In-company education and teaching for business schools and universities across strategic marketing, positioning, brand strategy, go-to-market and marketing operating models.",
   socialTitle: "Marketing Education | Growing Clever Academy",
   path: "/academy",
 };
@@ -21,8 +21,6 @@ export const metadata: Metadata = {
   ...pageMetadata(seo),
   title: { absolute: seo.title },
 };
-
-const workshopSteps = ["Assess", "Challenge", "Decide"];
 
 export default function AcademyPage() {
   return (
@@ -90,49 +88,13 @@ export default function AcademyPage() {
         <div className={styles.areasRow}>
           <div className="eyebrow eyebrow--teal">02 — Areas we teach</div>
           <p className={styles.areasList}>
-            Strategic Marketing · Marketing Operating Models · Positioning &amp; Messaging · Brand
-            Strategy · Go-to-Market · Responsible Marketing · Responsible Business
+            Strategic Marketing · Positioning &amp; Messaging · Brand Strategy · Go-to-Market ·
+            Marketing Operating Models · Responsible Marketing · Responsible Business
           </p>
         </div>
         <p className={styles.areasNote}>
           Programmes in each area are designed around the audience and the challenge.
         </p>
-      </section>
-
-      <section className={styles.workshop}>
-        <div className="eyebrow">03 — Featured workshop</div>
-        <div className={styles.workshopGrid}>
-          <div className={styles.workshopCopy}>
-            <div className={styles.workshopLabel}>
-              Responsible Marketing ·
-              <br className={styles.mobileBreak} /> IIMS Workshop
-            </div>
-            <h2 className={styles.workshopHeadline}>
-              From responsible intent
-              <br className={styles.mobileBreak} /> to credible marketing.
-            </h2>
-            <p className={styles.workshopBody}>
-              A practical programme built around the{" "}
-              <span className={styles.workshopEmphasis}>
-                Impact Integrity Marketing System™ (IIMS)
-              </span>
-              , helping leaders and teams apply responsible marketing principles to real marketing
-              decisions.
-            </p>
-            <Link href="/contact?topic=Academy" className={`btn btn--green btn--sm ${styles.workshopCta}`}>
-              Discuss the IIMS Workshop →
-            </Link>
-          </div>
-
-          <div className={styles.steps}>
-            {workshopSteps.map((step) => (
-              <div key={step} className={styles.step}>
-                <span className={styles.stepDot} aria-hidden="true" />
-                <h3 className={styles.stepTitle}>{step}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className={styles.closing}>
