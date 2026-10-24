@@ -7,7 +7,7 @@ import styles from "./contact.module.css";
 const seo: PageSeo = {
   title: "Contact Growing Clever | Start a Conversation",
   description:
-    "Start a conversation with Growing Clever about strategic marketing, responsible marketing, education, speaking or collaborations.",
+    "Start a conversation with Growing Clever about strategic marketing advisory, education, speaking or collaborations.",
   socialTitle: "Contact Growing Clever | Start a Conversation",
   path: "/contact",
 };
@@ -21,18 +21,6 @@ export const metadata: Metadata = {
   ...pageMetadata(seo),
   title: { absolute: seo.title },
 };
-
-/** The two strands drawn inside the Lab card. */
-const labStrands = [
-  {
-    title: "Strategic Marketing",
-    body: "Marketing operating models, positioning, go‑to‑market and brand change.",
-  },
-  {
-    title: "Responsible Marketing",
-    body: "Claim Check and tailored Programme built around the Impact Integrity Marketing System™ (IIMS).",
-  },
-];
 
 const routes = [
   { title: "Academy", body: "In-company learning and education programmes." },
@@ -59,12 +47,10 @@ export default function ContactPage() {
             <h3 className={styles.routeTitle}>
               Lab <span className={styles.routeTitleNote}>(Advisory)</span>
             </h3>
-            {labStrands.map((strand) => (
-              <div key={strand.title} className={styles.strand}>
-                <h4 className={styles.strandTitle}>{strand.title}</h4>
-                <p className={styles.strandBody}>{strand.body}</p>
-              </div>
-            ))}
+            <p className={styles.routeBody}>
+              Positioning and go‑to‑market.
+              <br /> Marketing organisation and change.
+            </p>
           </a>
 
           {routes.map((route) => (

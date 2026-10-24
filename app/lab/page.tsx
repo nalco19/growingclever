@@ -6,10 +6,10 @@ import ClosingCta from "@/components/chrome/ClosingCta";
 import styles from "./lab.module.css";
 
 const seo: PageSeo = {
-  title: "Strategic & Responsible Marketing Advisory | Growing Clever Lab",
+  title: "Strategic Marketing Advisory | Growing Clever Lab",
   description:
-    "Strategic marketing advisory on operating models, positioning, go-to-market and brand change, with Responsible Marketing built around the IIMS™.",
-  socialTitle: "Strategic & Responsible Marketing Advisory | Growing Clever Lab",
+    "Strategic marketing advisory on positioning, go-to-market, marketing operating models and brand integration, turning strategy into decisions the business can deliver.",
+  socialTitle: "Strategic Marketing Advisory | Growing Clever Lab",
   path: "/lab",
 };
 
@@ -23,43 +23,33 @@ export const metadata: Metadata = {
   title: { absolute: seo.title },
 };
 
-const strategicItems = [
+const positioningItems = [
   {
     number: "01",
-    title: "Marketing operating model",
-    body: "How teams, agencies and processes work together.",
-  },
-  {
-    number: "02",
     title: "Positioning and messaging",
     body: "What the brand stands for, how it is differentiated, and the messages that carry it to market.",
   },
   {
-    number: "03",
+    number: "02",
     title: "Go‑to‑market",
     body: "Which markets and segments to prioritise, and how to reach them.",
   },
+];
+
+const organisationItems = [
   {
-    number: "04",
+    number: "01",
+    title: "Marketing operating model",
+    body: "How teams, agencies and processes work together, and where AI fits in.",
+  },
+  {
+    number: "02",
     title: "Brand integration and rebrand leadership",
     body: "Leading brand change, including after mergers and acquisitions.",
   },
 ];
 
-const responsibleItems = [
-  {
-    number: "01",
-    title: "IIMS Claim Check",
-    body: "A focused diagnostic of what the brand is saying in market, what needs strengthening and what may be missing.",
-  },
-  {
-    number: "02",
-    title: "IIMS Programme",
-    body: "A deeper, tailored engagement built around the organisation’s own marketing, claims, evidence and decisions.",
-  },
-];
-
-type Item = (typeof strategicItems)[number];
+type Item = (typeof positioningItems)[number];
 
 function HelpItem({ number, title, body }: Item) {
   return (
@@ -79,7 +69,7 @@ export default function LabPage() {
       <PageHero
         eyebrow="Growing Clever Lab"
         headline="Turning complex questions into clear decisions."
-        lead="Strategic marketing advisory on operating models, positioning, go‑to‑market and responsible marketing."
+        lead="Strategic marketing advisory on positioning, go‑to‑market, marketing operating models and brand integration."
         imageSrc="/assets/lab-hero.webp"
         imageAlt="Advisory session with a client team"
       />
@@ -90,9 +80,9 @@ export default function LabPage() {
 
         <div className={styles.helpGrid}>
           <div className={styles.helpColumn}>
-            <h3 className={styles.helpTitle}>Strategic Marketing</h3>
+            <h3 className={styles.helpTitle}>Positioning and go-to-market</h3>
             <p className={styles.helpLead}>Strategy the organisation can actually deliver.</p>
-            {strategicItems.map((item) => (
+            {positioningItems.map((item) => (
               <HelpItem key={item.number} {...item} />
             ))}
             <div className={styles.callout}>
@@ -106,12 +96,11 @@ export default function LabPage() {
           </div>
 
           <div className={`${styles.helpColumn} ${styles.helpColumnSecond}`}>
-            <h3 className={styles.helpTitle}>Responsible Marketing</h3>
+            <h3 className={styles.helpTitle}>Marketing organisation and change</h3>
             <p className={styles.helpLead}>
-              Our specialism. Marketing that says what it can prove, built around the Impact
-              Integrity Marketing System™ (IIMS).
+              How marketing is organised to deliver it, and how brands are led through change.
             </p>
-            {responsibleItems.map((item) => (
+            {organisationItems.map((item) => (
               <HelpItem key={item.number} {...item} />
             ))}
           </div>

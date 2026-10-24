@@ -46,6 +46,14 @@
   height: auto;
 }
 
+/* The ECO mark is close to square, where the width above is tuned for a wide
+   wordmark. Left at 440px it renders 440x352 and fills the panel edge to edge,
+   so the square mark is held to a size that reads at the same optical weight.
+   Two classes, to outrank the mobile .featuredLogo override below. */
+.featuredLogo.featuredLogoSquare {
+  max-width: 220px;
+}
+
 .featuredCopy {
   min-width: 0;
   padding: 48px 44px;

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Link from "next/link";
 
 import styles from "./home.module.css";
@@ -11,12 +10,12 @@ const stuckPoints = [
 
 const focusAreas = [
   {
-    title: "Strategic Marketing",
-    body: "Marketing operating models, brand strategy, positioning and go‑to‑market that turn business ambition into strategy the organisation can actually deliver.",
+    title: "Positioning and go‑to‑market",
+    body: "How the brand is positioned, what it can credibly say and how it goes to market, turned into strategy the organisation can actually deliver.",
   },
   {
-    title: "Responsible Marketing",
-    body: "Our specialism. Marketing that says what it can prove, and makes more of what the business can credibly say.",
+    title: "Marketing organisation and change",
+    body: "How marketing is organised, how teams, agencies and processes work together, and how brands are led through integration and change.",
   },
 ];
 
@@ -77,35 +76,6 @@ const pillars = [
     cta: "Explore Voice →",
     href: "/voice",
     icon: <polygon points="6,3 20,12 6,21" />,
-  },
-];
-
-const iimsSteps = [
-  {
-    number: "01",
-    label: "Marketing claims",
-    title: <>What do we want to say?</>,
-    accent: false,
-  },
-  {
-    number: "02",
-    label: "IIMS in practice",
-    title: <>Bring evidence, intent and marketing judgement together</>,
-    accent: true,
-  },
-  {
-    number: "03",
-    label: "Better decisions",
-    title: (
-      <>
-        What to say
-        <br />
-        What to strengthen
-        <br />
-        What we’re not saying yet
-      </>
-    ),
-    accent: false,
   },
 ];
 
@@ -191,47 +161,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.iims}>
-        <div className="eyebrow eyebrow--muted">05 — Proprietary IP</div>
-        <h2 className={styles.iimsHeadline}>
-          Impact Integrity Marketing System™
-          <br />
-          (IIMS)
-        </h2>
-        <div className={styles.iimsSplit}>
-          <p className={styles.iimsStatement}>A better way to decide what your brand says.</p>
-          <p className={styles.iimsBody}>
-            Developed by Growing Clever, the IIMS turns responsible marketing principles into
-            practical decisions for real campaigns and claims.
-          </p>
-        </div>
-
-        <div className={styles.flow}>
-          <div className={styles.flowRow}>
-            {iimsSteps.map((step, index) => (
-              <Fragment key={step.number}>
-                {index > 0 && <div className={styles.flowArrow} aria-hidden="true" />}
-                <div
-                  className={`${styles.flowBox} ${step.accent ? styles.flowBoxAccent : ""}`.trim()}
-                >
-                  <div className={styles.flowHead}>
-                    <span className={styles.flowNum}>{step.number}</span>
-                    <span className={styles.flowLabel}>{step.label}</span>
-                  </div>
-                  <div className={step.accent ? styles.flowTitleAccent : styles.flowTitle}>
-                    {step.title}
-                  </div>
-                </div>
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className={styles.founder}>
         <img src="/assets/neuza.png" alt="Neuza Alcobio" className={styles.founderPortrait} />
         <div className={styles.founderCopy}>
-          <div className="eyebrow">06 — Founder</div>
+          <div className="eyebrow">05 — Founder</div>
           <h2 className={styles.founderHeadline}>
             Built across agencies,
             <br className={styles.mobileBreak} /> global accounts and
@@ -252,8 +185,8 @@ export default function HomePage() {
             years and served on the company’s Responsible Business &amp; ESG Committee.
           </p>
           <p className={styles.founderBody}>
-            She founded Growing Clever to bring that experience to the strategic marketing decisions
-            that shape how organisations grow, position themselves, go to market and communicate
+            She founded Growing Clever to bring that experience to the decisions behind growth,
+            helping organisations position themselves, go to market and communicate effectively and
             responsibly.
           </p>
           <Link href="/about" className={`btn btn--green btn--sm ${styles.founderCta}`}>
@@ -263,13 +196,8 @@ export default function HomePage() {
       </section>
 
       <section className={styles.statement}>
-        <p className={styles.statementHeadline}>
-          Growth is not
-          <br className={styles.mobileBreak} /> the destination.
-          <br />
-          It is a responsibility.
-        </p>
-        <p className={styles.statementTagline}>Strategic marketing, with accountability</p>
+        <p className={styles.statementHeadline}>Growth needs better decisions.</p>
+        <p className={styles.statementTagline}>Let’s begin with yours</p>
         <Link href="/contact" className={`btn btn--teal ${styles.statementCta}`}>
           Start a conversation
         </Link>
